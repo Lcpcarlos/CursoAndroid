@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PokerTentativaFinal</string>
+    <string name="nomeJogador">nomeJogador</string>
+    <string name="telefone_celular">Telefone Celular</string>
+    <string name="salvar_jogador">Salvar Jogador</string>
+    <string name="remover">Remover</string>
+</resources>
