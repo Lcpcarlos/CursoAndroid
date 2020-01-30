@@ -1,4 +1,4 @@
-package com.example.pokertentativafinal.ui.Adapter;
+package com.example.pokertentativafinal.ui.Jogador.Adapter;
 
 import android.view.View;
 import android.widget.TextView;

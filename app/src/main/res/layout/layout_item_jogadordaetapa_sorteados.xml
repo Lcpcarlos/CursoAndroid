@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/item_nome_jogadordaetapa_sorteado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="24sp"
+        tools:text="luiz" />
+
+    <TextView
+        android:id="@+id/item_mesa_jogadordaetapa_sorteado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="24sp"
+        tools:text="1" />
+
+
+    <TextView
+        android:id="@+id/item_posicaomesa_jogadordaetapa_sorteado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="1"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/item_rebuy_jogadordaetapa_sorteado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/qt_rebuy"
+        android:inputType="number" />
+
+</LinearLayout>

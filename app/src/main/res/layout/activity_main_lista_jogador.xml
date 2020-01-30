@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.MainListaJogadorActivity">
-
+    tools:context=".ui.Jogador.MainListaJogadorActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/Activity_lista_jogador_FAB_novo_jogador"

@@ -1,5 +1,5 @@
 package com.example.pokertentativafinal.ui;
 
-interface ConstantesActivities {
+public interface ConstantesActivities {
      String CHAVE_JOGADOR = "jogador";
 }

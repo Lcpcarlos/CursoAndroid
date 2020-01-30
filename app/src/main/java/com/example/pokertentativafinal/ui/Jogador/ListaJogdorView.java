@@ -1,4 +1,4 @@
-package com.example.pokertentativafinal.ui;
+package com.example.pokertentativafinal.ui.Jogador;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,19 +9,22 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
-import com.example.pokertentativafinal.DAO.JogadorDAO;
+import com.example.pokertentativafinal.database.PokerDatabase;
+import com.example.pokertentativafinal.database.dao.RoomJogadorDAO;
 import com.example.pokertentativafinal.model.Jogador;
-import com.example.pokertentativafinal.ui.Adapter.ListaJogadoresAdapter;
+import com.example.pokertentativafinal.ui.Jogador.Adapter.ListaJogadoresAdapter;
 
 public class ListaJogdorView {
     private final ListaJogadoresAdapter adapter;
-    private final JogadorDAO daoJogador;
+    private final RoomJogadorDAO daoJogador;
     private final Context context;
 
     public ListaJogdorView(Context context) {
         this.context = context;
         this.adapter = new ListaJogadoresAdapter(context);
-        this.daoJogador = new JogadorDAO();
+        this.daoJogador = PokerDatabase
+                            .getInstance(context)
+                            .getRoomJogadorDAO();
     }
 
     public void confirmaRemoverJogador(@NonNull final MenuItem item) {

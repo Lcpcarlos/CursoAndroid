@@ -1,4 +1,4 @@
-package com.example.pokertentativafinal.ui;
+package com.example.pokertentativafinal.ui.Jogador;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,9 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pokertentativafinal.DAO.JogadorDAO;
 import com.example.pokertentativafinal.R;
+import com.example.pokertentativafinal.database.PokerDatabase;
+import com.example.pokertentativafinal.database.dao.RoomJogadorDAO;
 import com.example.pokertentativafinal.model.Jogador;
 
 import static com.example.pokertentativafinal.ui.ConstantesActivities.CHAVE_JOGADOR;
@@ -21,7 +22,7 @@ public class ActivityFormularioJogador extends AppCompatActivity {
     private static final String TITULO_APPBAR_EDITA_JOGADOR = "Editar Jogador";
     private EditText nomeJogador;
     private EditText telefoneCelularJogador;
-    private final JogadorDAO daoJogador = new JogadorDAO();
+    private  RoomJogadorDAO daoJogador;
     private Jogador jogadorRecebido;
 
     @Override
@@ -29,6 +30,8 @@ public class ActivityFormularioJogador extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_jogador);
 
+               daoJogador = PokerDatabase.getInstance(this)
+                       .getRoomJogadorDAO();
 
         inicializaCampoNovoJogador();
 

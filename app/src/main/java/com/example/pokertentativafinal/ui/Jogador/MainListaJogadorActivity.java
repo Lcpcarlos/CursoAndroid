@@ -1,4 +1,4 @@
-package com.example.pokertentativafinal.ui;
+package com.example.pokertentativafinal.ui.Jogador;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.pokertentativafinal.DAO.JogadorDAO;
 import com.example.pokertentativafinal.R;
 import com.example.pokertentativafinal.model.Jogador;
-import com.example.pokertentativafinal.ui.Adapter.ListaJogadoresAdapter;
+import com.example.pokertentativafinal.ui.Jogador.Adapter.ListaJogadoresAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static com.example.pokertentativafinal.ui.ConstantesActivities.CHAVE_JOGADOR;
@@ -25,7 +25,7 @@ public class MainListaJogadorActivity extends AppCompatActivity {
 
     private final JogadorDAO daoJogador = new JogadorDAO();
     private ListaJogadoresAdapter adapter;
-    private ListaJogdorView listaJogdorView = new ListaJogdorView(this);
+    private ListaJogdorView listaJogdorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class MainListaJogadorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_lista_jogador);
 
         setTitle(TITULO_APPBAR);
+        listaJogdorView = new ListaJogdorView(this);
         configuraFABNovoJogador();
         configuraListaJogadores();
     }

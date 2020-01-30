@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/activity_jogador_da_etapa_menu"
+        android:title="@string/salvar_jogadores" />
+
+    <item android:id="@+id/activity_jogador_da_etapa_menu_sorteio"
+        android:title="@string/sorteio" />
+
+    <item android:id="@+id/activity_jogador_da_etapa_menu_mesa"
+        android:title="@string/mesa" />
+
+</menu>

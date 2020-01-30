@@ -4,4 +4,11 @@
     <string name="telefone_celular">Telefone Celular</string>
     <string name="salvar_jogador">Salvar Jogador</string>
     <string name="remover">Remover</string>
+    <string name="salvar_jogadores">Salvar Jogadores na etapa</string>
+    <string name="sorteio">Sorteio</string>
+    <string name="qt_rebuy">Qtde Rebuy</string>
+    <string name="gerar_valor">Gerar Valor a pagar</string>
+    <string name="Resultado">Resultado</string>
+    <string name="resumo">Resumo</string>
+    <string name="mesa">mesa</string>
 </resources>
