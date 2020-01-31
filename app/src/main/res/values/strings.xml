@@ -11,4 +11,5 @@
     <string name="Resultado">Resultado</string>
     <string name="resumo">Resumo</string>
     <string name="mesa">mesa</string>
+    <string name="base">Gerar Base</string>
 </resources>

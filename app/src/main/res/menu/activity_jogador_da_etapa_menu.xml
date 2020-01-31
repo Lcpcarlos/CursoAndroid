@@ -9,4 +9,7 @@
     <item android:id="@+id/activity_jogador_da_etapa_menu_mesa"
         android:title="@string/mesa" />
 
+    <item android:id="@+id/activity_jogador_da_etapa_menu_base"
+        android:title="@string/base" />
+
 </menu>
