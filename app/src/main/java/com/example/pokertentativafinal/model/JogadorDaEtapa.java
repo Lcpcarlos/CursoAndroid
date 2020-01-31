@@ -21,6 +21,8 @@ public class JogadorDaEtapa  {
     private int qtReBuy = 0;
     private double ttlPagar = 0;
 
+
+
     public double getTtlPagar() {
         return ttlPagar;
     }

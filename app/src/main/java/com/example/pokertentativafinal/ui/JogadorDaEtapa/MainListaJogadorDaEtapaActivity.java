@@ -1,12 +1,16 @@
 package com.example.pokertentativafinal.ui.JogadorDaEtapa;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pokertentativafinal.DAO.JogadorDAO;
@@ -14,11 +18,14 @@ import com.example.pokertentativafinal.DAO.JogadorDaEtapaDAO;
 import com.example.pokertentativafinal.R;
 import com.example.pokertentativafinal.database.PokerDatabase;
 import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
+import com.example.pokertentativafinal.model.Jogador;
 import com.example.pokertentativafinal.model.JogadorDaEtapa;
 import com.example.pokertentativafinal.ui.JogadorDaEtapa.Adapter.ListaJogadoresDaEtapaAdapter;
 import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.MainJogadoresDaEtapaSorteados;
 import com.example.pokertentativafinal.ui.Mesas.MainMesas;
 import com.example.pokertentativafinal.ui.Resultado.MainResultadoDaEtapaActivity;
+
+import java.util.List;
 
 public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
 
@@ -29,7 +36,9 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
     private ListaJogdorDaEtapaView listaJogdorDaEtapaView;
     private CarregaListaDeJogadoresParaSelecionar carregaListaDeJogadoresParaSelecionar;
     private RoomJogadorDaEtapaDAO daoJogadordaEtapa;
+    private JogadorDaEtapaDAO jogadorDaEtapaDAO;
     private JogadorDaEtapa jogadorSelecionado;
+    private boolean temJogadorSelecionado = false;
 
 
     @Override
@@ -63,18 +72,73 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
         int itemIdMenu = item.getItemId();
-        if (itemIdMenu == R.id.activity_jogador_da_etapa_menu) {
-            salvarJogadorNaEtapa();
+        if (itemIdMenu == R.id.activity_jogador_da_etapa_menu_sorteio) {
+                final Intent vaparaSorteio = new Intent(this, MainJogadoresDaEtapaSorteados.class);
+                if (daoJogadordaEtapa.todos().size() > 0) {
+                    temJogadorSelecionado = false;
+                    verificaTemJogadorSelecionado();
+                    if (temJogadorSelecionado){
+                         perguntaSeQuerRefazerOSorteio(vaparaSorteio);
+                    } else {
+                        avisaQueNaoTemJogadorParaSorteio();
+                    }
+
+                } else {
+                  temJogadorSelecionado = false;
+                  verificaTemJogadorSelecionado();
+                    if (temJogadorSelecionado){
+                        perguntaSeQuerEfetuarOSorteio(vaparaSorteio);
+                    } else {
+                        avisaQueNaoTemJogadorParaSorteio();
+                    }
+                }
         }
 
-        if (itemIdMenu == R.id.activity_jogador_da_etapa_menu_sorteio) {
-            startActivity( new Intent(this, MainJogadoresDaEtapaSorteados.class));
-        }
         if (itemIdMenu == R.id.activity_jogador_da_etapa_menu_mesa) {
             startActivity( new Intent(this, MainMesas.class));
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void avisaQueNaoTemJogadorParaSorteio() {
+        new AlertDialog.Builder(this)
+                .setTitle("Efetuar Sorteio")
+                .setMessage("Náo existem jogadores salvos na etapa.")
+                .setNegativeButton("ok", null)
+                .show();
+    }
+
+
+    private void perguntaSeQuerRefazerOSorteio(final Intent vaparaSorteio) {
+        new AlertDialog.Builder(this)
+          .setTitle("Efetuar Sorteio")
+          .setMessage("Sorteio já efetuado. Refazer o sorteio?")
+          .setPositiveButton("sim", new DialogInterface.OnClickListener() {
+              @Override
+              public void onClick(DialogInterface dialog, int which) {
+                  salvarJogadorNaEtapa();
+                  startActivity(vaparaSorteio);
+              }
+          })
+          .setNegativeButton("Náo", null)
+          .show();
+    }
+
+    private void perguntaSeQuerEfetuarOSorteio(final Intent vaparaSorteio) {
+        new AlertDialog.Builder(this)
+          .setTitle("Efetuar Sorteio")
+          .setMessage("Tem certeza?")
+          .setPositiveButton("sim", new DialogInterface.OnClickListener() {
+              @Override
+              public void onClick(DialogInterface dialog, int which) {
+                  salvarJogadorNaEtapa();
+                  startActivity(vaparaSorteio);
+              }
+          })
+          .setNegativeButton("Náo", null)
+          .show();
     }
 
     private void salvarJogadorNaEtapa() {
@@ -88,6 +152,15 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
                daoJogadordaEtapa.salva(jogadorDaEtapaSelecionado);
             } else {
                daoJogadordaEtapa.remove(jogadorDaEtapaSelecionado);
+            }
+        }
+    }
+
+    private void verificaTemJogadorSelecionado() {
+        JogadorDaEtapaDAO jogadores = new JogadorDaEtapaDAO();
+        for (int i = 0; i < jogadores.todos().size() ; i++) {
+            if (jogadores.todos().get(i).isCheck()) {
+               temJogadorSelecionado = true;
             }
         }
     }

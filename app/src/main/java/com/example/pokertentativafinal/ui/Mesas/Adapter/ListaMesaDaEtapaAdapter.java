@@ -1,4 +1,4 @@
-package com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.Adapter;
+package com.example.pokertentativafinal.ui.Mesas.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -15,12 +15,12 @@ import com.example.pokertentativafinal.model.JogadorDaEtapa;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaJogadoresDaEtapaPorMesaAdapter extends BaseAdapter {
+public class ListaMesaDaEtapaAdapter extends BaseAdapter {
     private final List<JogadorDaEtapa> jogadoresDaEtapaSorteados = new ArrayList<>();
     private final Context context;
     private RoomJogadorDaEtapaDAO daoJogadordaEtapa;
 
-    public ListaJogadoresDaEtapaPorMesaAdapter(Context context) {
+    public ListaMesaDaEtapaAdapter(Context context) {
         this.context = context;
         this.daoJogadordaEtapa = PokerDatabase
                 .getInstance(context)
@@ -51,7 +51,7 @@ public class ListaJogadoresDaEtapaPorMesaAdapter extends BaseAdapter {
         if (convertView == null){
             viewCriada = LayoutInflater
                     .from(context)
-                    .inflate(R.layout.layout_item_jogadordaetapa_sorteados
+                    .inflate(R.layout.layout_item_mesadaetapa_sorteados
                             , parent, false);
 
             holder = new ViewHolderMesaDaEtapa(viewCriada);
@@ -67,6 +67,32 @@ public class ListaJogadoresDaEtapaPorMesaAdapter extends BaseAdapter {
         holder.nomeJogador.setText(jogadorDevolvido.getNome());
         holder.mesaJogador.setText(String.valueOf(jogadorDevolvido.getMesa()));
         holder.posicaoMesaJogador.setText(String.valueOf(jogadorDevolvido.getPosicaoMesa()));
+        holder.rebuyJogador.setText(String.valueOf(jogadorDevolvido.getQtReBuy()));
+        holder.rebuyJogador.setTag(jogadorDevolvido);
+
+        holder.rebuyJogador.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+
+                if (!hasFocus){
+                    TextView rebuy = (TextView) v;
+
+                    JogadorDaEtapa g = (JogadorDaEtapa) v.getTag();
+                    int numero;
+
+                    String testeSeNumerico = rebuy.getText().toString();
+
+                    if ( testeSeNumerico.isEmpty()) {
+                        numero = 0;
+                    } else {
+                        numero = Integer.parseInt(rebuy.getText().toString());
+                    }
+                    g.setQtReBuy(numero);
+                    daoJogadordaEtapa.edita(g);
+                }
+            }
+        });
+
         return viewCriada;
     }
 

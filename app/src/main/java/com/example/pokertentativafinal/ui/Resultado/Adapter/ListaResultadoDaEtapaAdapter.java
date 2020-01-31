@@ -44,7 +44,7 @@ public class ListaResultadoDaEtapaAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ViewHolderResultadoDaEtapa holder;
+        ViewHolderMesaDaEtapa holder;
         final View viewCriada;
 
         if (convertView == null){
@@ -52,12 +52,12 @@ public class ListaResultadoDaEtapaAdapter extends BaseAdapter {
                     .from(context)
                     .inflate(R.layout.layout_item_resultadodaetapa
                             , parent, false);
-            holder = new ViewHolderResultadoDaEtapa(viewCriada);
+            holder = new ViewHolderMesaDaEtapa(viewCriada);
             viewCriada.setTag(holder);
 
            } else {
             viewCriada = convertView;
-            holder =    (ViewHolderResultadoDaEtapa)
+            holder =    (ViewHolderMesaDaEtapa)
             viewCriada.getTag();
         }
 

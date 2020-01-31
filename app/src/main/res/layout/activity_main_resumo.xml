@@ -4,17 +4,134 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            android:text="Total" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            tools:text="255,00"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/activity_resumo_da_etapa_total"
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            android:text="raike" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_ttlraike"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            />
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            tools:text="255,00" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            android:text="Mesa Final" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_mesafinal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            tools:text="255,00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            android:text="Reserva" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_reserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            tools:text="255,00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            android:text="Valor para o prêmio" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_premio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            tools:text="255,00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            android:text="Qtde jogadores no pódio" />
+
+        <TextView
+            android:id="@+id/activity_podio_da_etapa_premio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            tools:text="255,00" />
+    </LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>

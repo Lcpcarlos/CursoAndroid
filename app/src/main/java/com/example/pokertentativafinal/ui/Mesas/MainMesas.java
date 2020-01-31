@@ -22,7 +22,7 @@ public class MainMesas extends AppCompatActivity {
     public static final String TITLE_APPBAR = "Jogadores sorteados";
 
     private ListaJogadoresDaEtapaPorMesaAdapter adapter;
-    private ListaJogdorDaEtapaSorteadoPorMesaView  listaJogdorDaEtapaSorteadoPorMesaView;
+    private ListaMesaDaEtapaSorteadoView  listaMesaDaEtapaSorteadoView;
     private CarregaListaMesa CarregaListaMesa;
     private RoomJogadorDaEtapaDAO daoJogadordaEtapa;
 
@@ -35,8 +35,8 @@ public class MainMesas extends AppCompatActivity {
         daoJogadordaEtapa = PokerDatabase.getInstance(this)
                 .getRoomJogadorDaEtapaDAO();
 
-        listaJogdorDaEtapaSorteadoPorMesaView =
-                new ListaJogdorDaEtapaSorteadoPorMesaView(this);
+        listaMesaDaEtapaSorteadoView =
+                new ListaMesaDaEtapaSorteadoView(this);
         CarregaListaMesa carregaListaMesa =
                 new CarregaListaMesa(this);
         carregaListaMesa.carregaLista();
@@ -46,7 +46,7 @@ public class MainMesas extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        listaJogdorDaEtapaSorteadoPorMesaView.atualizaLista();
+        listaMesaDaEtapaSorteadoView.atualizaLista();
     }
 
     @Override
@@ -66,8 +66,8 @@ public class MainMesas extends AppCompatActivity {
 
 
     private void configuraListaJogadores() {
-        ListView listaJogador = findViewById(R.id.activity_jogadores_da_etapa_sorteados);
-        listaJogdorDaEtapaSorteadoPorMesaView.configuraAdapter(listaJogador);
+        ListView listaJogador = findViewById(R.id.activity_mesa_da_etapa_sorteados);
+        listaMesaDaEtapaSorteadoView.configuraAdapter(listaJogador);
 
     }
 

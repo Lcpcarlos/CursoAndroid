@@ -5,12 +5,12 @@ import android.widget.TextView;
 
 import com.example.pokertentativafinal.R;
 
-class ViewHolderResultadoDaEtapa {
+class ViewHolderMesaDaEtapa {
     final TextView nomeJogador;
     final TextView rebuyJogador;
 
 
-    public ViewHolderResultadoDaEtapa(View view){
+    public ViewHolderMesaDaEtapa(View view){
         nomeJogador =  view.findViewById(R.id.item_nome_resultadodaetapa);
         rebuyJogador =  view.findViewById(R.id.item_valor_resultadodaetapa);
     }

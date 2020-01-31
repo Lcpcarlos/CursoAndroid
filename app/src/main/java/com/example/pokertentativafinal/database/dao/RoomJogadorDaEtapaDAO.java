@@ -21,6 +21,9 @@ public interface RoomJogadorDaEtapaDAO {
     @Query("SELECT * FROM JogadorDaEtapa")
     List<JogadorDaEtapa> todos();
 
+    @Query("SELECT * FROM JogadorDaEtapa where id = :idJogador")
+    JogadorDaEtapa jogadorEspecifico(int idJogador);
+
     @Query("SELECT * FROM JogadorDaEtapa order by mesa, posicaoMesa")
     List<JogadorDaEtapa> todosOrdemMesa();
 
