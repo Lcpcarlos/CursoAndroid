@@ -19,7 +19,7 @@ public interface RoomJogadorDAO {
     void remove(Jogador jogador);
 
 
-    @Query("SELECT * FROM jogador")
+    @Query("SELECT * FROM jogador order by nome")
     List<Jogador> todos();
 
     @Update
