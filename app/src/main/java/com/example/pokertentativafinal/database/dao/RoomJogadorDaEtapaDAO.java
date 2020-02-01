@@ -18,6 +18,9 @@ public interface RoomJogadorDaEtapaDAO {
     @Delete
     void remove(JogadorDaEtapa jogador);
 
+    @Query("SELECT max(posicaoMesa) FROM JogadorDaEtapa where mesa = :mesa")
+    int  mesas(int mesa);
+
     @Query("SELECT * FROM JogadorDaEtapa")
     List<JogadorDaEtapa> todos();
 
@@ -29,4 +32,7 @@ public interface RoomJogadorDaEtapaDAO {
 
     @Update
     void edita(JogadorDaEtapa jogadorRecebido);
+
+    @Query("SELECT * FROM JogadorDaEtapa order by nome")
+    List<JogadorDaEtapa> todosOrdemNome();
 }

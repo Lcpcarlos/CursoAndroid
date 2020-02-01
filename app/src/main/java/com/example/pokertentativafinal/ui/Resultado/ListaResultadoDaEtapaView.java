@@ -30,7 +30,7 @@ public class ListaResultadoDaEtapaView {
     }
 
     public void atualizaLista() {
-        adapter.atualiza(daoJogadorDaEtapa.todosOrdemMesa());
+        adapter.atualiza(daoJogadorDaEtapa.todosOrdemNome());
     }
 
 }

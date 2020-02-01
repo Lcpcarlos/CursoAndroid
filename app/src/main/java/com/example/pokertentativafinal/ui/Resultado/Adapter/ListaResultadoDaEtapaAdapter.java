@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 
 import com.example.pokertentativafinal.R;
 import com.example.pokertentativafinal.database.PokerDatabase;
@@ -61,10 +62,27 @@ public class ListaResultadoDaEtapaAdapter extends BaseAdapter {
             viewCriada.getTag();
         }
 
-        final JogadorDaEtapa jogadorDevolvido =  getItem(position);
-        holder.nomeJogador.setText(jogadorDevolvido.getNome());
+        final JogadorDaEtapa jogadorResultado =  getItem(position);
+        holder.checkBoxJogador.setChecked(jogadorResultado.isPagou());
+        holder.nomeJogador.setText(jogadorResultado.getNome());
 
-        holder.rebuyJogador.setText(String.valueOf(jogadorDevolvido.getTtlPagar()));
+        holder.rebuyJogador.setText(String.valueOf(jogadorResultado.getTtlPagar()));
+
+        holder.checkBoxJogador.setTag(jogadorResultado);
+        holder.checkBoxJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckBox checkBox = (CheckBox) v;
+                JogadorDaEtapa j = (JogadorDaEtapa) v.getTag();
+                j.setCheck(((CheckBox) v).isChecked());
+                if(checkBox.isChecked()){
+                    j.setPagou(true);
+                } else {
+                    j.setPagou(false);
+                }
+                daoJogadordaEtapa.edita(jogadorResultado);
+            }
+        });
 
         return viewCriada;
     }

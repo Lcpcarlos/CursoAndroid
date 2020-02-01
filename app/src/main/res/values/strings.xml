@@ -12,4 +12,5 @@
     <string name="resumo">Resumo</string>
     <string name="mesa">mesa</string>
     <string name="base">Gerar Base</string>
+    <string name="novoJogador">Inclui novo jogador na etapa</string>
 </resources>

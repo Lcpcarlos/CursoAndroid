@@ -18,6 +18,7 @@ public interface RoomJogadorDAO {
     @Delete
     void remove(Jogador jogador);
 
+
     @Query("SELECT * FROM jogador")
     List<Jogador> todos();
 

@@ -20,8 +20,15 @@ public class JogadorDaEtapa  {
     private int qtAddOn = 0;
     private int qtReBuy = 0;
     private double ttlPagar = 0;
+    private boolean pagou = false;
 
+    public boolean isPagou() {
+        return pagou;
+    }
 
+    public void setPagou(boolean pagou) {
+        this.pagou = pagou;
+    }
 
     public double getTtlPagar() {
         return ttlPagar;
