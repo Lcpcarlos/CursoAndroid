@@ -75,7 +75,8 @@ public class CarregaListaDeJogadoresPorMesa {
             continua = true;
             while (continua){
                 posicaoEscolhida = posicao.nextInt(mesaComPosicao[mesaEscolhida].length);
-                if (posicaoEscolhida <= ttlJogadoresPorMesa[mesaEscolhida]) {
+
+                if ((posicaoEscolhida + 1) <= ttlJogadoresPorMesa[mesaEscolhida]) {
                     if (mesaComPosicao[mesaEscolhida][posicaoEscolhida] == 0){
                         mesaComPosicao[mesaEscolhida][posicaoEscolhida] = 1;
                         continua = false;

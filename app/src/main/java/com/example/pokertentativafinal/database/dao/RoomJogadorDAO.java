@@ -18,9 +18,11 @@ public interface RoomJogadorDAO {
     @Delete
     void remove(Jogador jogador);
 
-
     @Query("SELECT * FROM jogador order by nome")
     List<Jogador> todos();
+
+    @Query("DELETE  FROM jogador")
+    void limpaBaseJogador();
 
     @Update
     void edita(Jogador jogadorRecebido);

@@ -49,6 +49,7 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
     private int ttlJogadoresDefinido;
     private  int[][] mesaComPosicao;
     private RoomJogadorDAO jogadorDAO;
+    private Jogador jogadorRemover;
 
 
     @Override
@@ -162,14 +163,12 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
     private void salvarJogadorNaEtapa() {
         JogadorDaEtapaDAO jogadorDaEtapaDAO = new JogadorDaEtapaDAO();
         JogadorDaEtapa jogadorDaEtapaSelecionado = new JogadorDaEtapa();
+        daoJogadordaEtapa.limpaBaseJogadorDaEtapa();
 
         for (int i = 0; i < jogadorDaEtapaDAO.todos().size(); i++) {
             jogadorDaEtapaSelecionado = jogadorDaEtapaDAO.todos().get(i);
             if (jogadorDaEtapaDAO.todos().get(i).isCheck()) {
-                daoJogadordaEtapa.remove(jogadorDaEtapaSelecionado);
                 daoJogadordaEtapa.salva(jogadorDaEtapaSelecionado);
-            } else {
-                daoJogadordaEtapa.remove(jogadorDaEtapaSelecionado);
             }
         }
     }
@@ -192,12 +191,7 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
     private void criaJogadoresDeTeste() {
         PokerDatabase database = PokerDatabase.getInstance(this);
         RoomJogadorDAO jogadorDAO = database.getRoomJogadorDAO();
-        for (int i = 0 ; i < jogadorDAO.todos().size() ; i++) {
-            Jogador jogadorRemover = jogadorDAO.todos().get(i);
-            jogadorDAO.remove(jogadorRemover);
-
-        }
-
+        jogadorDAO.limpaBaseJogador();
 
         jogadorDAO.salva(new Jogador("Luiz", "123"));
         jogadorDAO.salva(new Jogador("De Deus", "1321"));
@@ -243,6 +237,7 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
         jogadorDAO.salva(new Jogador("Hauseman", "12321"));
         jogadorDAO.salva(new Jogador("Ronaldo(Ulysses)", "12321"));
         jogadorDAO.salva(new Jogador("Ricardo(Ulysses)", "12321"));
+        jogadorDAO.salva(new Jogador("Caio", "12321"));
     }
 
     private void incluiNovoJogadorNaEtapa() {
