@@ -1,4 +1,4 @@
-package com.example.pokertentativafinal.ui.Mesas;
+package com.example.pokertentativafinal.ui.Rebuy;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,17 +13,15 @@ import com.example.pokertentativafinal.R;
 import com.example.pokertentativafinal.database.PokerDatabase;
 import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
 import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.Adapter.ListaJogadoresDaEtapaPorMesaAdapter;
-import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.CarregaListaDeJogadoresPorMesa;
-import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.ListaJogdorDaEtapaSorteadoPorMesaView;
 import com.example.pokertentativafinal.ui.Resultado.MainResultadoDaEtapaActivity;
 
-public class MainMesas extends AppCompatActivity {
+public class MainRebuy extends AppCompatActivity {
 
     public static final String TITLE_APPBAR = "Jogadores sorteados";
 
     private ListaJogadoresDaEtapaPorMesaAdapter adapter;
-    private ListaMesaDaEtapaSorteadoView  listaMesaDaEtapaSorteadoView;
-    private CarregaListaMesa CarregaListaMesa;
+    private ListaRebuyDaEtapaSorteadoView listaMesaDaEtapaSorteadoView;
+    private CarregaListaRebuy CarregaListaRebuy;
     private RoomJogadorDaEtapaDAO daoJogadordaEtapa;
 
     @Override
@@ -36,10 +34,10 @@ public class MainMesas extends AppCompatActivity {
                 .getRoomJogadorDaEtapaDAO();
 
         listaMesaDaEtapaSorteadoView =
-                new ListaMesaDaEtapaSorteadoView(this);
-        CarregaListaMesa carregaListaMesa =
-                new CarregaListaMesa(this);
-        carregaListaMesa.carregaLista();
+                new ListaRebuyDaEtapaSorteadoView(this);
+        CarregaListaRebuy carregaListaRebuy =
+                new CarregaListaRebuy(this);
+        carregaListaRebuy.carregaLista();
         configuraListaJogadores();
     }
 

@@ -32,6 +32,7 @@ public class MainResumoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_resumo);
 
             setTitle(TITTLE_APPBAR);
+
             daoJogadordaEtapa = PokerDatabase.getInstance(this)
                     .getRoomJogadorDaEtapaDAO();
 

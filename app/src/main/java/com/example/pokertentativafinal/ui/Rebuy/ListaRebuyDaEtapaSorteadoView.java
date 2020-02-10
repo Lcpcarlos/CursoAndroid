@@ -1,21 +1,20 @@
-package com.example.pokertentativafinal.ui.Mesas;
+package com.example.pokertentativafinal.ui.Rebuy;
 
 import android.content.Context;
 import android.widget.ListView;
 
 import com.example.pokertentativafinal.database.PokerDatabase;
 import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
-import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.Adapter.ListaJogadoresDaEtapaPorMesaAdapter;
-import com.example.pokertentativafinal.ui.Mesas.Adapter.ListaMesaDaEtapaAdapter;
+import com.example.pokertentativafinal.ui.Rebuy.Adapter.ListaRebuyDaEtapaAdapter;
 
-public class ListaMesaDaEtapaSorteadoView {
-    private final ListaMesaDaEtapaAdapter adapter;
+public class ListaRebuyDaEtapaSorteadoView {
+    private final ListaRebuyDaEtapaAdapter adapter;
     private final RoomJogadorDaEtapaDAO daoJogadorDaEtapa;
     private final Context context;
 
-    public ListaMesaDaEtapaSorteadoView(Context context) {
+    public ListaRebuyDaEtapaSorteadoView(Context context) {
         this.context = context;
-        this.adapter = new ListaMesaDaEtapaAdapter(context);
+        this.adapter = new ListaRebuyDaEtapaAdapter(context);
         this.daoJogadorDaEtapa = PokerDatabase
                 .getInstance(context)
                 .getRoomJogadorDaEtapaDAO();

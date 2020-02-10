@@ -1,4 +1,4 @@
-package com.example.pokertentativafinal.ui.Mesas.Adapter;
+package com.example.pokertentativafinal.ui.Rebuy.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -15,12 +15,12 @@ import com.example.pokertentativafinal.model.JogadorDaEtapa;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaMesaDaEtapaAdapter extends BaseAdapter {
+public class ListaRebuyDaEtapaAdapter extends BaseAdapter {
     private final List<JogadorDaEtapa> jogadoresDaEtapaSorteados = new ArrayList<>();
     private final Context context;
     private RoomJogadorDaEtapaDAO daoJogadordaEtapa;
 
-    public ListaMesaDaEtapaAdapter(Context context) {
+    public ListaRebuyDaEtapaAdapter(Context context) {
         this.context = context;
         this.daoJogadordaEtapa = PokerDatabase
                 .getInstance(context)
@@ -45,7 +45,7 @@ public class ListaMesaDaEtapaAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ViewHolderMesaDaEtapa holder;
+        ViewHolderRebuyDaEtapa holder;
         final View viewCriada;
 
         if (convertView == null){
@@ -54,12 +54,12 @@ public class ListaMesaDaEtapaAdapter extends BaseAdapter {
                     .inflate(R.layout.layout_item_mesadaetapa_sorteados
                             , parent, false);
 
-            holder = new ViewHolderMesaDaEtapa(viewCriada);
+            holder = new ViewHolderRebuyDaEtapa(viewCriada);
             viewCriada.setTag(holder);
 
            } else {
             viewCriada = convertView;
-            holder =    (ViewHolderMesaDaEtapa)
+            holder =    (ViewHolderRebuyDaEtapa)
             viewCriada.getTag();
         }
 

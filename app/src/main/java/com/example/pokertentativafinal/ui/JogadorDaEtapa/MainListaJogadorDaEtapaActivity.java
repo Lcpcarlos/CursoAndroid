@@ -3,10 +3,8 @@ package com.example.pokertentativafinal.ui.JogadorDaEtapa;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -23,8 +21,8 @@ import com.example.pokertentativafinal.model.Jogador;
 import com.example.pokertentativafinal.model.JogadorDaEtapa;
 import com.example.pokertentativafinal.ui.JogadorDaEtapa.Adapter.ListaJogadoresDaEtapaAdapter;
 import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.MainJogadoresDaEtapaSorteados;
-import com.example.pokertentativafinal.ui.Mesas.MainMesas;
-import com.example.pokertentativafinal.ui.Resultado.MainResultadoDaEtapaActivity;
+import com.example.pokertentativafinal.ui.Mesas.MainMesa;
+import com.example.pokertentativafinal.ui.Rebuy.MainRebuy;
 
 import java.util.List;
 
@@ -108,7 +106,11 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
         }
 
         if (itemIdMenu == R.id.activity_jogador_da_etapa_menu_mesa) {
-            startActivity(new Intent(this, MainMesas.class));
+            startActivity(new Intent(this, MainMesa.class));
+        }
+
+        if (itemIdMenu == R.id.activity_jogador_da_etapa_menu_rebuy) {
+            startActivity(new Intent(this, MainRebuy.class));
         }
 
         if (itemIdMenu == R.id.activity_jogador_da_etapa_menu_novojogador) {
@@ -118,6 +120,7 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
         if (itemIdMenu == R.id.activity_jogador_da_etapa_menu_base) {
             criaJogadoresDeTeste();
         }
+
         return super.onOptionsItemSelected(item);
     }
 

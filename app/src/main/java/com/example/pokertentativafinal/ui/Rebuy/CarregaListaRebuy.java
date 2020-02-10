@@ -1,4 +1,4 @@
-package com.example.pokertentativafinal.ui.Mesas;
+package com.example.pokertentativafinal.ui.Rebuy;
 
 import android.content.Context;
 
@@ -8,7 +8,7 @@ import com.example.pokertentativafinal.model.JogadorDaEtapa;
 
 import java.util.List;
 
-public class CarregaListaMesa {
+public class CarregaListaRebuy {
     private final Context context;
     private final RoomJogadorDaEtapaDAO jogadorDaEtapaDAO;
     private Object NullPointerException;
@@ -23,7 +23,7 @@ public class CarregaListaMesa {
     private  int[][] mesaComPosicao;
 
 
-    public CarregaListaMesa(Context context) {
+    public CarregaListaRebuy(Context context) {
         this.context = context;
         this.jogadorDaEtapaDAO = PokerDatabase
                 .getInstance(context)
