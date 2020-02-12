@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="@string/remover"
-          android:id="@+id/Activity_lista_jogador_menu_remover"/>
+          android:id="@+id/Activity_lista_jogador_menu_remover"
+        />
 
 </menu>

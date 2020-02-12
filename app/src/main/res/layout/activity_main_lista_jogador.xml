@@ -6,6 +6,13 @@
     android:layout_height="wrap_content"
     tools:context=".ui.Jogador.MainListaJogadorActivity">
 
+    <ListView
+        android:id="@+id/activity_main_lista_de_jogador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/Activity_lista_jogador_FAB_novo_jogador"
         android:layout_width="wrap_content"
@@ -20,11 +27,4 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_action_lista_jogador_novo" />
-
-    <ListView
-        android:id="@+id/activity_main_lista_de_jogador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </ListView>
 </RelativeLayout>
