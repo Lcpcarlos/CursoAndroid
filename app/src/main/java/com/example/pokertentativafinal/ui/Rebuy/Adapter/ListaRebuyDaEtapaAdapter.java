@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.pokertentativafinal.R;
@@ -65,8 +67,43 @@ public class ListaRebuyDaEtapaAdapter extends BaseAdapter {
 
         final JogadorDaEtapa jogadorDevolvido =  getItem(position);
         holder.nomeJogador.setText(jogadorDevolvido.getNome());
-        holder.mesaJogador.setText(String.valueOf(jogadorDevolvido.getMesa()));
-        holder.posicaoMesaJogador.setText(String.valueOf(jogadorDevolvido.getPosicaoMesa()));
+        holder.posicaoMesa.setText(jogadorDevolvido.getMesa() + "-" + jogadorDevolvido.getPosicaoMesa());
+
+        holder.checkBoxRaikeJogador.setChecked(jogadorDevolvido.isRaike());
+        holder.checkBoxRaikeJogador.setTag(jogadorDevolvido);
+        holder.checkBoxRaikeJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckBox checkBox = (CheckBox) v;
+                JogadorDaEtapa j = (JogadorDaEtapa) v.getTag();
+                j.setRaike(((CheckBox) v).isChecked());
+                if(checkBox.isChecked()){
+                    j.setRaike(true);
+                } else {
+                    j.setRaike(false);
+                }
+                daoJogadordaEtapa.edita(j);
+            }
+        });
+
+        holder.checkBoxAddonJogador.setChecked(jogadorDevolvido.isAddOn());
+        holder.checkBoxAddonJogador.setTag(jogadorDevolvido);
+        holder.checkBoxAddonJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckBox checkBox = (CheckBox) v;
+                JogadorDaEtapa k = (JogadorDaEtapa) v.getTag();
+                k.setAddOn(((CheckBox) v).isChecked());
+                if(checkBox.isChecked()){
+                    k.setAddOn(true);
+                } else {
+                    k.setAddOn(false);
+                }
+                daoJogadordaEtapa.edita(k);
+            }
+        });
+
+
         holder.rebuyJogador.setText(String.valueOf(jogadorDevolvido.getQtReBuy()));
         holder.rebuyJogador.setTag(jogadorDevolvido);
 

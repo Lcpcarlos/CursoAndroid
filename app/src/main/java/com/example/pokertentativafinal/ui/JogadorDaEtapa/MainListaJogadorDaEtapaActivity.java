@@ -241,6 +241,8 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
         jogadorDAO.salva(new Jogador("Ronaldo(Ulysses)", "12321"));
         jogadorDAO.salva(new Jogador("Ricardo(Ulysses)", "12321"));
         jogadorDAO.salva(new Jogador("Caio", "12321"));
+        jogadorDAO.salva(new Jogador("Mamá", "12321"));
+        jogadorDAO.salva(new Jogador("Bob - Odirlei", "12321"));
     }
 
     private void incluiNovoJogadorNaEtapa() {

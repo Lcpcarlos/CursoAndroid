@@ -22,6 +22,7 @@ public class ListaJogadoresDaEtapaAdapter extends BaseAdapter {
     private final Context context;
     private boolean isSelected;
 
+
     public ListaJogadoresDaEtapaAdapter(Context context) {
         this.context = context;
     }

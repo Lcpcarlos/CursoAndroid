@@ -18,6 +18,27 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:textSize="24sp"
+            android:text="Total Jogadores" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_totaljogadores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
+            tools:text="20"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:textSize="24sp"
             android:text="Total" />
 
         <TextView
@@ -123,7 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:textSize="24sp"
-            android:text="Qtde jogadores no pódio" />
+            android:text="Qtde jogadores  pódio" />
 
         <TextView
             android:id="@+id/activity_podio_da_etapa_premio"
@@ -131,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:textSize="24sp"
-            tools:text="255,00" />
+            tools:text="5" />
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>

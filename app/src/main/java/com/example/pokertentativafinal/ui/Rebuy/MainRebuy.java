@@ -27,7 +27,7 @@ public class MainRebuy extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_mesa);
+        setContentView(R.layout.activity_main_rebuy);
         setTitle(TITLE_APPBAR);
 
         daoJogadordaEtapa = PokerDatabase.getInstance(this)

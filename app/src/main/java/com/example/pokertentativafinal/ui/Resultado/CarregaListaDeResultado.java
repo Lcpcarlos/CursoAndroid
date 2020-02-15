@@ -36,9 +36,16 @@ public class CarregaListaDeResultado {
         for (int i = 0; i < todosJogadores.size(); i++) {
             double valorAPagarDeRebuy = 0 ;
             double valorTotalAPagar = 0;
-            double valorRaike = 5;
+            double valorRaike = 0;
             double valorBuyIn = 5;
-            double valorAddOn = 5;
+            double valorAddOn = 0;
+            if (todosJogadores.get(i).isRaike()){
+                valorRaike= 5;
+            }
+            if (todosJogadores.get(i).isAddOn()){
+                valorAddOn= 5;
+            }
+
             int qtRebuY = todosJogadores.get(i).getQtReBuy();
             int qtRebuyDez = 0;
             int qtRebuyCinco = 2;
@@ -48,7 +55,10 @@ public class CarregaListaDeResultado {
             } else {
                 valorAPagarDeRebuy = qtRebuY * 5;
             }
-            valorTotalAPagar = valorBuyIn + valorRaike + valorAPagarDeRebuy + valorAddOn;
+            valorTotalAPagar = valorBuyIn +
+                    (valorRaike) +
+                    (valorAPagarDeRebuy) +
+                    (valorAddOn) ;
             todosJogadores.get(i).setTtlPagar(valorTotalAPagar);
             jogadorDaEtapaDAO.edita(todosJogadores.get(i));
         }

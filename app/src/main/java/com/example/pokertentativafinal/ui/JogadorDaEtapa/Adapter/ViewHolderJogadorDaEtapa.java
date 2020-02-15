@@ -9,11 +9,12 @@ import com.example.pokertentativafinal.ui.JogadorDaEtapa.MainListaJogadorDaEtapa
 
 class ViewHolderJogadorDaEtapa {
     final TextView nomeJogadorDevolvido;
-    CheckBox  checkBoxJogador;
+    CheckBox checkBoxJogador;
 
-    public ViewHolderJogadorDaEtapa(View view){
-        nomeJogadorDevolvido =  view.findViewById(R.id.item_nome_jogadordaetapa);
-        checkBoxJogador =  view.findViewById(R.id.item_jogador_checkBox);
+
+    public ViewHolderJogadorDaEtapa(View view) {
+        nomeJogadorDevolvido = view.findViewById(R.id.item_nome_jogadordaetapa);
+        checkBoxJogador = view.findViewById(R.id.item_jogador_checkBox);
     }
 
 }

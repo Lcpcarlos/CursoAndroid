@@ -4,7 +4,6 @@ package com.example.pokertentativafinal.model;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
-import androidx.room.Insert;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -17,10 +16,27 @@ public class JogadorDaEtapa  {
     private int mesa = 0;
     private int posicaoMesa = 0;
     private int qtBuyIn = 0;
-    private int qtAddOn = 0;
+    private boolean addOn = true;
+    private boolean raike = true;
     private int qtReBuy = 0;
     private double ttlPagar = 0;
     private boolean pagou = false;
+
+    public boolean isAddOn() {
+        return addOn;
+    }
+
+    public void setAddOn(boolean addOn) {
+        this.addOn = addOn;
+    }
+
+    public boolean isRaike() {
+        return raike;
+    }
+
+    public void setRaike(boolean raike) {
+        this.raike = raike;
+    }
 
     public boolean isPagou() {
         return pagou;
@@ -68,14 +84,6 @@ public class JogadorDaEtapa  {
 
     public void setQtReBuy(int qtReBuy) {
         this.qtReBuy = qtReBuy;
-    }
-
-    public int getQtAddOn() {
-        return qtAddOn;
-    }
-
-    public void setQtAddOn(int qtAddOn) {
-        this.qtAddOn = qtAddOn;
     }
 
     @Ignore
