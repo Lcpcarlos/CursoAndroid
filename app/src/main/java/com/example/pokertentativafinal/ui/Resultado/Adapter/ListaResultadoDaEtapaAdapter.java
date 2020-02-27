@@ -65,6 +65,7 @@ public class ListaResultadoDaEtapaAdapter extends BaseAdapter {
         final JogadorDaEtapa jogadorResultado =  getItem(position);
         holder.checkBoxJogador.setChecked(jogadorResultado.isPagou());
         holder.nomeJogador.setText(jogadorResultado.getNome());
+        holder.valorTotal.setText(String.valueOf(jogadorResultado.getTtlPagarFamilia()));
 
         holder.rebuyJogador.setText(String.valueOf(jogadorResultado.getTtlPagar()));
 

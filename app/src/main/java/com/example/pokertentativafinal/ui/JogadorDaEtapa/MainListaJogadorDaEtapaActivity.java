@@ -3,6 +3,7 @@ package com.example.pokertentativafinal.ui.JogadorDaEtapa;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -196,53 +197,151 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
         RoomJogadorDAO jogadorDAO = database.getRoomJogadorDAO();
         jogadorDAO.limpaBaseJogador();
 
-        jogadorDAO.salva(new Jogador("Luiz", "123"));
-        jogadorDAO.salva(new Jogador("De Deus", "1321"));
-        jogadorDAO.salva(new Jogador("Roberto", "2321"));
+
+
+
         jogadorDAO.salva(new Jogador("Marisa", "3321"));
+        jogadorDAO.salva(new Jogador("De Deus", "1321"));
+        incluiResponsavelFinanceiro("De Deus", "De Deus");
+        incluiResponsavelFinanceiro("Marisa", "De Deus");
+
+        jogadorDAO.salva(new Jogador("Roberto", "2321"));
+
         jogadorDAO.salva(new Jogador("Thiago", "4321"));
+        incluiResponsavelFinanceiro("Thiago", "Thiago");
         jogadorDAO.salva(new Jogador("Japa", "5321"));
+        jogadorDAO.salva(new Jogador("Maria Thiago", "12321"));
+        incluiResponsavelFinanceiro("Japa", "Thiago");
+        incluiResponsavelFinanceiro("Maria Thiago", "Thiago");
+
+
+        jogadorDAO.salva(new Jogador("Ricardo(Ulysses)", "12321"));
         jogadorDAO.salva(new Jogador("Renata", "6321"));
         jogadorDAO.salva(new Jogador("Ulysses", "7321"));
+        incluiResponsavelFinanceiro("Renata", "Ulysses");
+        incluiResponsavelFinanceiro("Ulysses", "Ulysses");
+        incluiResponsavelFinanceiro("Ricardo(Ulysses)", "Ulysses");
+
         jogadorDAO.salva(new Jogador("Pablo", "8321"));
+
         jogadorDAO.salva(new Jogador("Patricia BB", "9321"));
+
         jogadorDAO.salva(new Jogador("Osni", "01321"));
+        jogadorDAO.salva(new Jogador("Gustavo Osni", "01321"));
+        incluiResponsavelFinanceiro("Osni", "Osni");
+        incluiResponsavelFinanceiro("Gustavo Osni", "Osni");
+
         jogadorDAO.salva(new Jogador("Rossato", "11321"));
-        jogadorDAO.salva(new Jogador("Lenara", "12321"));
+        jogadorDAO.salva(new Jogador("Lenara", "1232"));
+        incluiResponsavelFinanceiro("Rossato", "Rossato");
+        incluiResponsavelFinanceiro("Lenara", "Rossato");
+
+
         jogadorDAO.salva(new Jogador("Aécio", "12321"));
         jogadorDAO.salva(new Jogador("Cristina", "12321"));
+        incluiResponsavelFinanceiro("Aécio", "Aécio");
+        incluiResponsavelFinanceiro("Cristina", "Aécio");
+
+
         jogadorDAO.salva(new Jogador("Buzz", "12321"));
+
         jogadorDAO.salva(new Jogador("Mano", "12321"));
-        jogadorDAO.salva(new Jogador("Arthur", "12321"));
+        jogadorDAO.salva(new Jogador("Arthur Mano", "12321"));
+        incluiResponsavelFinanceiro("Mano", "Mano");
+        incluiResponsavelFinanceiro("Arthur Mano", "Mano");
+
         jogadorDAO.salva(new Jogador("Olier", "12321"));
-        jogadorDAO.salva(new Jogador("Izabela", "12321"));
+
+        jogadorDAO.salva(new Jogador("Isabela", "12321"));
+
         jogadorDAO.salva(new Jogador("Eudes Martins", "12321"));
         jogadorDAO.salva(new Jogador("Patricia Martins", "12321"));
+        incluiResponsavelFinanceiro("Eudes Martins", "Eudes Martins");
+        incluiResponsavelFinanceiro("Patricia Martins", "Eudes Martins");
+
+
         jogadorDAO.salva(new Jogador("EudesBB", "12321"));
+
         jogadorDAO.salva(new Jogador("Andressa", "12321"));
         jogadorDAO.salva(new Jogador("Vinícius", "12321"));
+        incluiResponsavelFinanceiro("Vinícius", "Vinícius");
+        incluiResponsavelFinanceiro("Andressa", "Vinícius");
+
+
         jogadorDAO.salva(new Jogador("Otoval", "12321"));
+
         jogadorDAO.salva(new Jogador("Joáo Almeida", "12321"));
         jogadorDAO.salva(new Jogador("Maristela", "12321"));
+        incluiResponsavelFinanceiro("Joáo Almeida", "Joáo Almeida");
+        incluiResponsavelFinanceiro("Maristela", "Joáo Almeida");
+
         jogadorDAO.salva(new Jogador("Mozaniel", "12321"));
         jogadorDAO.salva(new Jogador("Raguel Mozaniel", "12321"));
+        jogadorDAO.salva(new Jogador("Pedro Mozaniel", "12321"));
+        incluiResponsavelFinanceiro("Mozaniel", "Mozaniel");
+        incluiResponsavelFinanceiro("Raguel Mozaniel", "Mozaniel");
+        incluiResponsavelFinanceiro("Pedro Mozaniel", "Mozaniel");
+
         jogadorDAO.salva(new Jogador("Heglison", "12321"));
+
         jogadorDAO.salva(new Jogador("Badu", "12321"));
+
+        jogadorDAO.salva(new Jogador("Luiz", "123"));
         jogadorDAO.salva(new Jogador("Dayane", "12321"));
+        incluiResponsavelFinanceiro("Luiz", "Luiz");
+        incluiResponsavelFinanceiro("Dayane", "Luiz");
+
+
         jogadorDAO.salva(new Jogador("Jairo", "12321"));
+
         jogadorDAO.salva(new Jogador("Rafael", "12321"));
-        jogadorDAO.salva(new Jogador("Maria", "12321"));
+
         jogadorDAO.salva(new Jogador("Wanderley", "12321"));
+        jogadorDAO.salva(new Jogador("Athina", "12321"));
+        incluiResponsavelFinanceiro("Wanderley", "Wanderley");
+        incluiResponsavelFinanceiro("Athina", "Wanderley");
+
         jogadorDAO.salva(new Jogador("Adriano Baea", "12321"));
+
         jogadorDAO.salva(new Jogador("Henderson", "12321"));
+
         jogadorDAO.salva(new Jogador("Igor", "12321"));
         jogadorDAO.salva(new Jogador("Joáo Pedro", "12321"));
+        incluiResponsavelFinanceiro("Igor", "Igor");
+        incluiResponsavelFinanceiro("Joáo Pedro", "Igor");
+
         jogadorDAO.salva(new Jogador("Hauseman", "12321"));
+
         jogadorDAO.salva(new Jogador("Ronaldo(Ulysses)", "12321"));
-        jogadorDAO.salva(new Jogador("Ricardo(Ulysses)", "12321"));
+
         jogadorDAO.salva(new Jogador("Caio", "12321"));
+
         jogadorDAO.salva(new Jogador("Mamá", "12321"));
+
         jogadorDAO.salva(new Jogador("Bob - Odirlei", "12321"));
+
+        jogadorDAO.salva(new Jogador("Felipe", "12321"));
+
+        for (int i = 0; i <jogadorDAO.todos().size() ; i++) {
+            Log.i("jogadores", "criaJogadoresDeTeste: " + jogadorDAO.todos().get(i).getNome() + " "  +
+                    jogadorDAO.todos().get(i).getId() + " " +
+                    jogadorDAO.todos().get(i).getIdResponsavelFinanceiroa() + " "  +
+                    jogadorDAO.jogadorPorIdFinanceiro(jogadorDAO.todos().get(i).getIdResponsavelFinanceiroa()).getNome());
+
+
+        }
+
+    }
+
+    private void incluiResponsavelFinanceiro(String nomeJogador, String nomeJogadorResponsavel){
+        PokerDatabase database = PokerDatabase.getInstance(this);
+        RoomJogadorDAO jogadorDAO = database.getRoomJogadorDAO();
+        Jogador jogador;
+        jogador            = jogadorDAO.jogadorPorNome(nomeJogador);
+        Jogador jogadorResponsavel = jogadorDAO.jogadorPorNome(nomeJogadorResponsavel);
+        jogador.setIdResponsavelFinanceiroa(jogadorResponsavel.getId());
+        jogadorDAO.edita(jogador);
+
     }
 
     private void incluiNovoJogadorNaEtapa() {
@@ -274,7 +373,7 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
     private void colocaJogadoresNaMesa() {
         JogadorDaEtapaDAO jogadorDaEtapaDAO = new JogadorDaEtapaDAO();
        JogadorDaEtapa jogadorDaEtapaSelecionado = new JogadorDaEtapa();
-       
+
         for (int i = 0; i <jogadorDaEtapaDAO.todos().size() ; i++) {
             if ( jogadorDaEtapaDAO.todos().get(i).isCheck()){
                 jogadorDaEtapaSelecionado = jogadorDaEtapaDAO.todos().get(i);
@@ -292,7 +391,7 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
             }
         }
     }
-    
+
     private void defineMesaPosicao(){
 
         for (int i = 0; i <  ttlMesa ; i++) {

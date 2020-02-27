@@ -21,6 +21,16 @@ public class JogadorDaEtapa  {
     private int qtReBuy = 0;
     private double ttlPagar = 0;
     private boolean pagou = false;
+    private double ttlPagarFamilia = 0;
+
+
+    public double getTtlPagarFamilia() {
+        return ttlPagarFamilia;
+    }
+
+    public void setTtlPagarFamilia(double ttlPagarFamilia) {
+        this.ttlPagarFamilia = ttlPagarFamilia;
+    }
 
     public boolean isAddOn() {
         return addOn;

@@ -11,7 +11,7 @@ import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
 import com.example.pokertentativafinal.model.Jogador;
 import com.example.pokertentativafinal.model.JogadorDaEtapa;
 
-@Database(entities = {Jogador.class, JogadorDaEtapa.class}, version = 7, exportSchema = false)
+@Database(entities = {Jogador.class, JogadorDaEtapa.class}, version = 9, exportSchema = false)
 public abstract class PokerDatabase extends RoomDatabase {
 
     private static final String NOME_BANCO_DE_DADOS = "poker.db";

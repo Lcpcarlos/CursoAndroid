@@ -63,5 +63,14 @@ public class CarregaListaDeResultado {
             jogadorDaEtapaDAO.edita(todosJogadores.get(i));
         }
     }
+
+    public void somaValorAPagar() {
+        List<JogadorDaEtapa> todosJogadores = jogadorDaEtapaDAO.todos();
+        for (int i = 0; i < todosJogadores.size(); i++) {
+            double valorTotalAPagar = jogadorDaEtapaDAO.totalPagar(todosJogadores.get(i).getId());
+            todosJogadores.get(i).setTtlPagarFamilia(valorTotalAPagar);
+            jogadorDaEtapaDAO.edita(todosJogadores.get(i));
+        }
+    }
 }
 

@@ -25,6 +25,10 @@ public interface RoomJogadorDaEtapaDAO {
     @Query("SELECT max(posicaoMesa) FROM JogadorDaEtapa where mesa = :mesa")
     int  mesas(int mesa);
 
+    @Query("SELECT sum(a.ttlPagar) FROM JogadorDaEtapa a, Jogador b  where b.idResponsavelFinanceiroa = :id and " +
+            "                                                              b.id = a.id ")
+    double  totalPagar(int id);
+
     @Query("SELECT * FROM JogadorDaEtapa")
     List<JogadorDaEtapa> todos();
 

@@ -21,6 +21,12 @@ public interface RoomJogadorDAO {
     @Query("SELECT * FROM jogador order by nome")
     List<Jogador> todos();
 
+    @Query("SELECT * FROM jogador where nome = :nome")
+    Jogador jogadorPorNome(String nome);
+
+    @Query("SELECT * FROM jogador where idResponsavelFinanceiroa = :idResponsavelFinanceiro")
+    Jogador jogadorPorIdFinanceiro(int idResponsavelFinanceiro);
+
     @Query("DELETE  FROM jogador")
     void limpaBaseJogador();
 

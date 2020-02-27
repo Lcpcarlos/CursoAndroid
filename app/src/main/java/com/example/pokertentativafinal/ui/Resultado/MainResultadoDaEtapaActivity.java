@@ -38,6 +38,7 @@ public class MainResultadoDaEtapaActivity extends AppCompatActivity {
         CarregaListaDeResultado carregaListaDeResultado =
                 new CarregaListaDeResultado(this);
         carregaListaDeResultado.carregaLista();
+        carregaListaDeResultado.somaValorAPagar();
        configuraListaJogadores();
     }
 

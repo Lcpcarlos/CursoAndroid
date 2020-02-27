@@ -15,6 +15,7 @@ public class Jogador implements Serializable {
     private int id = 0;
     private String nome;
     private String telefone;
+    private int idResponsavelFinanceiroa = id;
 
     @Ignore
     public Jogador(String nome, String telefone) {
@@ -24,6 +25,14 @@ public class Jogador implements Serializable {
 
     public Jogador() {
 
+    }
+
+    public int getIdResponsavelFinanceiroa() {
+        return idResponsavelFinanceiroa;
+    }
+
+    public void setIdResponsavelFinanceiroa(int idResponsavelFinanceiroa) {
+        this.idResponsavelFinanceiroa = idResponsavelFinanceiroa;
     }
 
     public  boolean temIdValido() {

@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:textSize="24sp"
-            android:text="raike" />
+            android:text="Raike" />
 
         <TextView
             android:id="@+id/activity_resumo_da_etapa_ttlraike"

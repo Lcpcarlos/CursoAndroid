@@ -11,6 +11,7 @@ public class JogadorDAO {
 
     public  void salva(Jogador jogador) {
         jogador.setId(contadorDeId);
+        jogador.setIdResponsavelFinanceiroa(contadorDeId);
         jogadores.add(jogador);
         atualizaID();
     }
