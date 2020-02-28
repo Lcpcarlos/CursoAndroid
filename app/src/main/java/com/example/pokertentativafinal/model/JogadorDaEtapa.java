@@ -22,7 +22,15 @@ public class JogadorDaEtapa  {
     private double ttlPagar = 0;
     private boolean pagou = false;
     private double ttlPagarFamilia = 0;
+    private int posicaoDeEliminacao = 0;
 
+    public int getPosicaoDeEliminacao() {
+        return posicaoDeEliminacao;
+    }
+
+    public void setPosicaoDeEliminacao(int posicaoDeEliminacao) {
+        this.posicaoDeEliminacao = posicaoDeEliminacao;
+    }
 
     public double getTtlPagarFamilia() {
         return ttlPagarFamilia;
