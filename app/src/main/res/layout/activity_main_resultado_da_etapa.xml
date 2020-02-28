@@ -1,15 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".ui.JogadorDaEtapa.MainListaJogadorDaEtapaActivity">
 
+    <TextView
+        android:id="@+id/activity_titulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Pagou?"
+        app:layout_constraintBottom_toTopOf="@id/activity_main_resultado_da_etapa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/activity_titulo_nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintBottom_toTopOf="@id/activity_main_resultado_da_etapa"
+        app:layout_constraintStart_toEndOf="@id/activity_titulo"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/activity_titulo_raike"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="120dp"
+        android:text="V. Individual"
+        app:layout_constraintBottom_toTopOf="@id/activity_main_resultado_da_etapa"
+        app:layout_constraintStart_toEndOf="@id/activity_titulo_nome"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/activity_titulo_add_on"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:text="Total Familia"
+        app:layout_constraintBottom_toTopOf="@id/activity_main_resultado_da_etapa"
+        app:layout_constraintStart_toEndOf="@id/activity_titulo_raike"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintVertical_bias="0.0" />
+
     <ListView
         android:id="@+id/activity_main_resultado_da_etapa"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/activity_titulo"
+        tools:listitem="@layout/layout_item_resultadodaetapa">
 
     </ListView>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

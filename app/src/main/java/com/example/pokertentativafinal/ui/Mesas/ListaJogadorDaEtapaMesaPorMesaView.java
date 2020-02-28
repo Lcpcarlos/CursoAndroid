@@ -7,19 +7,19 @@ import com.example.pokertentativafinal.database.PokerDatabase;
 import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
 import com.example.pokertentativafinal.model.JogadorDaEtapa;
 import com.example.pokertentativafinal.model.JogadorDaEtapaPorMesa;
-import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.Adapter.ListaJogadoresDaEtapaPorMesaAdapter;
+import com.example.pokertentativafinal.ui.Mesas.Adapter.ListaMesaDaEtapaPorMesaAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListaJogadorDaEtapaMesaPorMesaView {
-    private final ListaJogadoresDaEtapaPorMesaAdapter adapter;
+    private final ListaMesaDaEtapaPorMesaAdapter adapter;
     private final RoomJogadorDaEtapaDAO daoJogadorDaEtapa;
     private final Context context;
 
     public ListaJogadorDaEtapaMesaPorMesaView(Context context) {
         this.context = context;
-        this.adapter = new ListaJogadoresDaEtapaPorMesaAdapter(context);
+        this.adapter = new ListaMesaDaEtapaPorMesaAdapter(context);
         this.daoJogadorDaEtapa = PokerDatabase
                 .getInstance(context)
                 .getRoomJogadorDaEtapaDAO();

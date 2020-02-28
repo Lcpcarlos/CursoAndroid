@@ -5,11 +5,7 @@ import android.widget.ListView;
 
 import com.example.pokertentativafinal.database.PokerDatabase;
 import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
-import com.example.pokertentativafinal.model.JogadorDaEtapa;
-import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.Adapter.ListaJogadoresDaEtapaPorMesaAdapter;
 import com.example.pokertentativafinal.ui.Resultado.Adapter.ListaResultadoDaEtapaAdapter;
-
-import java.util.List;
 
 public class ListaResultadoDaEtapaView {
     private final ListaResultadoDaEtapaAdapter adapter;

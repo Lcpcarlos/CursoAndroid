@@ -8,15 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.pokertentativafinal.R;
 import com.example.pokertentativafinal.database.PokerDatabase;
 import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
-import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.Adapter.ListaJogadoresDaEtapaPorMesaAdapter;
-import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.CarregaListaDeJogadoresPorMesa;
-import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.ListaJogdorDaEtapaSorteadoPorMesaView;
 
 public class MainMesa extends AppCompatActivity {
 
-    public static final String TITLE_APPBAR = "Jogadores sorteados";
+    public static final String TITLE_APPBAR = "Jogadores sorteados por mesa";
 
-    private ListaJogadoresDaEtapaPorMesaAdapter adapter;
     private ListaJogadorDaEtapaMesaPorMesaView listaJogadorDaEtapaMesaPorMesaView;
     private RoomJogadorDaEtapaDAO daoJogadordaEtapa;
 

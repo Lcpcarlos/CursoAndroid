@@ -1,11 +1,12 @@
 package com.example.pokertentativafinal.ui.JogadorDaEtapa;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -20,10 +21,11 @@ import com.example.pokertentativafinal.database.dao.RoomJogadorDAO;
 import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
 import com.example.pokertentativafinal.model.Jogador;
 import com.example.pokertentativafinal.model.JogadorDaEtapa;
+import com.example.pokertentativafinal.ui.Jogador.ActivityFormularioJogador;
 import com.example.pokertentativafinal.ui.JogadorDaEtapa.Adapter.ListaJogadoresDaEtapaAdapter;
-import com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados.MainJogadoresDaEtapaSorteados;
 import com.example.pokertentativafinal.ui.Mesas.MainMesa;
 import com.example.pokertentativafinal.ui.Rebuy.MainRebuy;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -46,9 +48,10 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
     private int[] ttlJogadoresPorMesa;
     private boolean continua = true;
     private int ttlJogadoresDefinido;
-    private  int[][] mesaComPosicao;
+    private int[][] mesaComPosicao;
     private RoomJogadorDAO jogadorDAO;
     private Jogador jogadorRemover;
+    private SorteiaJogadoresPorMesa sorteiaJogadoresPorMesa;
 
 
     @Override
@@ -61,16 +64,19 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
 
 
         setTitle(TITULO_APPBAR);
+
         listaJogdorDaEtapaView = new ListaJogdorDaEtapaView(this);
         carregaListaDeJogadoresParaSelecionar =
                 new CarregaListaDeJogadoresParaSelecionar(this);
         carregaListaDeJogadoresParaSelecionar.carregaLista();
+        configuraFABNovoJogador();
         configuraListaJogadores();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        carregaListaDeJogadoresParaSelecionar.carregaLista();
         listaJogdorDaEtapaView.atualizaLista();
     }
 
@@ -85,12 +91,14 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
 
         int itemIdMenu = item.getItemId();
         if (itemIdMenu == R.id.activity_jogador_da_etapa_menu_sorteio) {
-            final Intent vaparaSorteio = new Intent(this, MainJogadoresDaEtapaSorteados.class);
+            final Intent vaiParaMesa = new Intent(this, MainMesa.class);
+
             if (daoJogadordaEtapa.todos().size() > 0) {
                 temJogadorSelecionado = false;
                 verificaTemJogadorSelecionado();
                 if (temJogadorSelecionado) {
-                    perguntaSeQuerRefazerOSorteio(vaparaSorteio);
+                    perguntaSeQuerRefazerOSorteio(vaiParaMesa, this);
+
                 } else {
                     avisaQueNaoTemJogadorParaSorteio();
                 }
@@ -99,7 +107,7 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
                 temJogadorSelecionado = false;
                 verificaTemJogadorSelecionado();
                 if (temJogadorSelecionado) {
-                    perguntaSeQuerEfetuarOSorteio(vaparaSorteio);
+                    perguntaSeQuerEfetuarOSorteio(vaiParaMesa, this);
                 } else {
                     avisaQueNaoTemJogadorParaSorteio();
                 }
@@ -119,7 +127,18 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
         }
 
         if (itemIdMenu == R.id.activity_jogador_da_etapa_menu_base) {
-            criaJogadoresDeTeste();
+            PokerDatabase database = PokerDatabase.getInstance(this);
+            RoomJogadorDAO jogadorDAO = database.getRoomJogadorDAO();
+            if (jogadorDAO.todos().size() > 0) {
+                avisaQueBaseJaFoiGerada();
+            } else {
+                criaJogadoresDeTeste();
+                jogadorDaEtapaDAO.limpa();
+                carregaListaDeJogadoresParaSelecionar.carregaLista();
+                listaJogdorDaEtapaView.atualizaLista();
+            }
+
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -134,22 +153,26 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
     }
 
 
-    private void perguntaSeQuerRefazerOSorteio(final Intent vaparaSorteio) {
+    private void perguntaSeQuerRefazerOSorteio(final Intent vaiParaMesa, final Context context) {
         new AlertDialog.Builder(this)
                 .setTitle("Efetuar Sorteio")
                 .setMessage("Sorteio já efetuado. Refazer o sorteio?")
                 .setPositiveButton("sim", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
                         salvarJogadorNaEtapa();
-                        startActivity(vaparaSorteio);
+                        SorteiaJogadoresPorMesa sorteiaJogadoresPorMesa =
+                                new SorteiaJogadoresPorMesa(context);
+                        sorteiaJogadoresPorMesa.carregaLista();
+                        startActivity(vaiParaMesa);
                     }
                 })
                 .setNegativeButton("Náo", null)
                 .show();
     }
 
-    private void perguntaSeQuerEfetuarOSorteio(final Intent vaparaSorteio) {
+    private void perguntaSeQuerEfetuarOSorteio(final Intent vaiPraMesa, final Context context) {
         new AlertDialog.Builder(this)
                 .setTitle("Efetuar Sorteio")
                 .setMessage("Tem certeza?")
@@ -157,10 +180,21 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         salvarJogadorNaEtapa();
-                        startActivity(vaparaSorteio);
+                        SorteiaJogadoresPorMesa sorteiaJogadoresPorMesa =
+                                new SorteiaJogadoresPorMesa(context);
+                        sorteiaJogadoresPorMesa.carregaLista();
+                        startActivity(vaiPraMesa);
                     }
                 })
                 .setNegativeButton("Náo", null)
+                .show();
+    }
+
+    private void avisaQueBaseJaFoiGerada() {
+        new AlertDialog.Builder(this)
+                .setTitle("Base já gerada.")
+                .setMessage("Base já carregada")
+                .setNegativeButton("ok", null)
                 .show();
     }
 
@@ -192,12 +226,26 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
         listaJogdorDaEtapaView.configuraAdapter(listaJogador);
     }
 
+    private void configuraFABNovoJogador() {
+        FloatingActionButton btnNovoJogador =
+                findViewById(R.id.Activity_lista_jogador_FAB_novo_jogador);
+
+        btnNovoJogador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abreFormularioInsereJogador();
+            }
+        });
+    }
+
+    private void abreFormularioInsereJogador() {
+        startActivity(new Intent(this, ActivityFormularioJogador.class));
+    }
+
     private void criaJogadoresDeTeste() {
         PokerDatabase database = PokerDatabase.getInstance(this);
         RoomJogadorDAO jogadorDAO = database.getRoomJogadorDAO();
         jogadorDAO.limpaBaseJogador();
-
-
 
 
         jogadorDAO.salva(new Jogador("Marisa", "3321"));
@@ -322,22 +370,13 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
 
         jogadorDAO.salva(new Jogador("Felipe", "12321"));
 
-        for (int i = 0; i <jogadorDAO.todos().size() ; i++) {
-            Log.i("jogadores", "criaJogadoresDeTeste: " + jogadorDAO.todos().get(i).getNome() + " "  +
-                    jogadorDAO.todos().get(i).getId() + " " +
-                    jogadorDAO.todos().get(i).getIdResponsavelFinanceiroa() + " "  +
-                    jogadorDAO.jogadorPorIdFinanceiro(jogadorDAO.todos().get(i).getIdResponsavelFinanceiroa()).getNome());
-
-
-        }
-
     }
 
-    private void incluiResponsavelFinanceiro(String nomeJogador, String nomeJogadorResponsavel){
+    private void incluiResponsavelFinanceiro(String nomeJogador, String nomeJogadorResponsavel) {
         PokerDatabase database = PokerDatabase.getInstance(this);
         RoomJogadorDAO jogadorDAO = database.getRoomJogadorDAO();
         Jogador jogador;
-        jogador            = jogadorDAO.jogadorPorNome(nomeJogador);
+        jogador = jogadorDAO.jogadorPorNome(nomeJogador);
         Jogador jogadorResponsavel = jogadorDAO.jogadorPorNome(nomeJogadorResponsavel);
         jogador.setIdResponsavelFinanceiroa(jogadorResponsavel.getId());
         jogadorDAO.edita(jogador);
@@ -351,7 +390,7 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
         int mesa = 0;
         ttlJogadoresPorMesa = new int[ttlMesa];
 
-        for (int i = 0; i < ttlMesa ; i++) {
+        for (int i = 0; i < ttlMesa; i++) {
             mesa = i + 1;
             ttlJogadoresPorMesa[i] = daoJogadordaEtapa.mesas(mesa);
         }
@@ -372,13 +411,13 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
 
     private void colocaJogadoresNaMesa() {
         JogadorDaEtapaDAO jogadorDaEtapaDAO = new JogadorDaEtapaDAO();
-       JogadorDaEtapa jogadorDaEtapaSelecionado = new JogadorDaEtapa();
+        JogadorDaEtapa jogadorDaEtapaSelecionado = new JogadorDaEtapa();
 
-        for (int i = 0; i <jogadorDaEtapaDAO.todos().size() ; i++) {
-            if ( jogadorDaEtapaDAO.todos().get(i).isCheck()){
+        for (int i = 0; i < jogadorDaEtapaDAO.todos().size(); i++) {
+            if (jogadorDaEtapaDAO.todos().get(i).isCheck()) {
                 jogadorDaEtapaSelecionado = jogadorDaEtapaDAO.todos().get(i);
                 int idJogador = jogadorDaEtapaSelecionado.getId();
-                if (daoJogadordaEtapa.jogadorEspecifico(idJogador) == null){
+                if (daoJogadordaEtapa.jogadorEspecifico(idJogador) == null) {
                     mesaEscolhida = 9;
                     posicaoEscolhida = 9;
                     defineMesaPosicao();
@@ -392,10 +431,10 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
         }
     }
 
-    private void defineMesaPosicao(){
+    private void defineMesaPosicao() {
 
-        for (int i = 0; i <  ttlMesa ; i++) {
-            if (ttlJogadoresPorMesa[i] < posicaoEscolhida){
+        for (int i = 0; i < ttlMesa; i++) {
+            if (ttlJogadoresPorMesa[i] < posicaoEscolhida) {
                 mesaEscolhida = i;
                 posicaoEscolhida = ttlJogadoresPorMesa[i];
             }

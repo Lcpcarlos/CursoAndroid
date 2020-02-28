@@ -14,18 +14,21 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
             android:text="Total Jogadores" />
+
 
         <TextView
             android:id="@+id/activity_resumo_da_etapa_totaljogadores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_marginRight="8dp"
+            android:layout_gravity="end"
             tools:text="20"/>
     </LinearLayout>
 
@@ -35,18 +38,185 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            android:text="Total" />
+            android:layout_marginLeft="8dp"
+            android:text="Total Rebuy"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_totalrebuy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            android:textAlignment="textEnd"
+            android:textSize="20sp"
+            tools:text="20" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_marginLeft="8dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Valor Total" />
 
         <TextView
             android:id="@+id/activity_resumo_da_etapa_total"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="1255.0"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
+            android:text="Raike" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_ttlraike"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="1255.00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_marginLeft="8dp"
+
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Mesa Final" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_mesafinal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:textSize="20sp"
+            android:layout_marginRight="8dp"
+            tools:text="255,00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
+            android:text="Reserva" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_reserva"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="255,00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
+
+            android:text="Valor para o prêmio" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_premio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="255,00" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textSize="20sp"
+            android:text="Qtde jogadores  pódio" />
+
+        <TextView
+            android:id="@+id/activity_podio_da_etapa_premio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
+
+            android:text="1 colocado(a)" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
             tools:text="255,00"/>
     </LinearLayout>
 
@@ -56,19 +226,21 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            android:text="Raike" />
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
+            android:text="2 colocado(a)" />
 
         <TextView
-            android:id="@+id/activity_resumo_da_etapa_ttlraike"
+            android:id="@+id/activity_resumo_da_etapa_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            tools:text="255,00" />
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="255,00"/>
     </LinearLayout>
 
     <LinearLayout
@@ -77,19 +249,21 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            android:text="Mesa Final" />
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
+            android:text="3 colocado(a)" />
 
         <TextView
-            android:id="@+id/activity_resumo_da_etapa_mesafinal"
+            android:id="@+id/activity_resumo_da_etapa_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            tools:text="255,00" />
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="255,00"/>
     </LinearLayout>
 
     <LinearLayout
@@ -98,19 +272,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            android:text="Reserva" />
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"
+
+            android:text="4 colocado(a)" />
 
         <TextView
-            android:id="@+id/activity_resumo_da_etapa_reserva"
+            android:id="@+id/activity_resumo_da_etapa_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            tools:text="255,00" />
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="255,00"/>
     </LinearLayout>
 
     <LinearLayout
@@ -119,19 +296,22 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            android:text="Valor para o prêmio" />
+            android:layout_marginLeft="8dp"
+
+            android:textSize="20sp"
+            android:text="5 colocado(a)" />
 
         <TextView
-            android:id="@+id/activity_resumo_da_etapa_premio"
+            android:id="@+id/activity_resumo_da_etapa_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            tools:text="255,00" />
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="255,00"/>
     </LinearLayout>
 
     <LinearLayout
@@ -140,19 +320,48 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            android:text="Qtde jogadores  pódio" />
+            android:layout_marginLeft="8dp"
+
+            android:textSize="20sp"
+            android:text="6 colocado(a)" />
 
         <TextView
-            android:id="@+id/activity_podio_da_etapa_premio"
+            android:id="@+id/activity_resumo_da_etapa_6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            android:textSize="24sp"
-            tools:text="5" />
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="255,00"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+
+            android:textSize="20sp"
+            android:text="7 colocado(a)" />
+
+        <TextView
+            android:id="@+id/activity_resumo_da_etapa_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:layout_marginRight="8dp"
+            tools:text="1255,00"/>
+    </LinearLayout>
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>

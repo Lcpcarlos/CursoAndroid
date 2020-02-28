@@ -31,29 +31,24 @@ public class CarregaListaDeJogadoresParaSelecionar {
                 .getRoomJogadorDAO();
 
         this.daoJogadorDaEtapa = PokerDatabase
-                 .getInstance(context)
+                .getInstance(context)
                 .getRoomJogadorDaEtapaDAO();
 
         this.jogadorDaEtapaDAO = new JogadorDaEtapaDAO();
     }
 
     public void carregaLista() {
-        
-        if (jogadorDaEtapaDAO.todos().size() == 0) {
-            List<Jogador> todosJogadores = daoJogador.todos();
 
-            for (int i = 0; i < todosJogadores.size(); i++) {
-                Jogador provisorio = todosJogadores.get(i);
-                JogadorDaEtapa jogadorNaEtapa = daoJogadorDaEtapa.jogadorEspecifico(provisorio.getId());
+        jogadorDaEtapaDAO.limpa();
 
-                if (jogadorNaEtapa == null) {
-                    jogadorDaEtapaDAO.salva(new JogadorDaEtapa(provisorio.getId(),
-                            provisorio.getNome(), false));
-                } else {
-                    jogadorDaEtapaDAO.salva(new JogadorDaEtapa(provisorio.getId(),
-                            provisorio.getNome(), true));
-                }
-            }
+        List<Jogador> todosJogadores = daoJogador.todos();
+
+        for (int i = 0; i < todosJogadores.size(); i++) {
+            Jogador provisorio = todosJogadores.get(i);
+//            JogadorDaEtapa jogadorNaEtapa = daoJogadorDaEtapa.jogadorEspecifico(provisorio.getId());
+
+            jogadorDaEtapaDAO.salva(new JogadorDaEtapa(provisorio.getId(),
+                    provisorio.getNome(), provisorio.isJogadorMarcadoParaEtapa()));
         }
     }
 }

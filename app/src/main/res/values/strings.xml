@@ -14,4 +14,5 @@
     <string name="base">Gerar Base</string>
     <string name="novoJogador">Inclui novo jogador na etapa</string>
     <string name="rebuy">Rebuy</string>
+    <string name="etapa">Etapa</string>
 </resources>

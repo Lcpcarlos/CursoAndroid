@@ -10,6 +10,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import com.example.pokertentativafinal.R;
+import com.example.pokertentativafinal.database.PokerDatabase;
+import com.example.pokertentativafinal.database.dao.RoomJogadorDAO;
+import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
 import com.example.pokertentativafinal.model.Jogador;
 import com.example.pokertentativafinal.model.JogadorDaEtapa;
 import com.google.android.material.chip.ChipGroup;
@@ -21,10 +24,15 @@ public class ListaJogadoresDaEtapaAdapter extends BaseAdapter {
     private final List<JogadorDaEtapa> jogadoresDaEtapa = new ArrayList<>();
     private final Context context;
     private boolean isSelected;
+    private RoomJogadorDAO roomJogadorDAO;
+    private Jogador jogador;
 
 
     public ListaJogadoresDaEtapaAdapter(Context context) {
         this.context = context;
+            this.roomJogadorDAO = PokerDatabase
+                    .getInstance(context)
+                    .getRoomJogadorDAO();
     }
 
     @Override
@@ -76,6 +84,9 @@ public class ListaJogadoresDaEtapaAdapter extends BaseAdapter {
                 } else {
                     j.setCheck(false);
                 }
+                jogador = roomJogadorDAO.jogadorPorId(j.getId());
+                jogador.setJogadorMarcadoParaEtapa(j.isCheck());
+                roomJogadorDAO.edita(jogador);
             }
         });
         return viewCriada;

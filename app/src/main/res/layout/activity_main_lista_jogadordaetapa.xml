@@ -14,7 +14,20 @@
         tools:listitem="layout_item_jogadordaetapa">
 
     </ListView>
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/Activity_lista_jogador_FAB_novo_jogador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="26dp"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_action_lista_jogador_novo" />
 
 
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.example.pokertentativafinal.ui.Jogador;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +16,7 @@ import com.example.pokertentativafinal.DAO.JogadorDAO;
 import com.example.pokertentativafinal.R;
 import com.example.pokertentativafinal.model.Jogador;
 import com.example.pokertentativafinal.ui.Jogador.Adapter.ListaJogadoresAdapter;
+import com.example.pokertentativafinal.ui.JogadorDaEtapa.MainListaJogadorDaEtapaActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import static com.example.pokertentativafinal.ui.ConstantesActivities.CHAVE_JOGADOR;
@@ -74,6 +76,24 @@ public class MainListaJogadorActivity extends AppCompatActivity {
         super.onResume();
         listaJogdorView.atualizaLista();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_jogador_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int itemIdMenu = item.getItemId();
+
+        if (itemIdMenu == R.id.activity_jogador_menu_etapa) {
+            startActivity(new Intent(this, MainListaJogadorDaEtapaActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
 
     private void configuraListaJogadores() {

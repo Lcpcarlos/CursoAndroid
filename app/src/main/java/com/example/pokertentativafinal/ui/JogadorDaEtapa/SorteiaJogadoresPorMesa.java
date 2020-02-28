@@ -1,7 +1,6 @@
-package com.example.pokertentativafinal.ui.JogadoresDaEtapaSorteados;
+package com.example.pokertentativafinal.ui.JogadorDaEtapa;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.pokertentativafinal.database.PokerDatabase;
 import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
@@ -10,7 +9,7 @@ import com.example.pokertentativafinal.model.JogadorDaEtapa;
 import java.util.List;
 import java.util.Random;
 
-public class CarregaListaDeJogadoresPorMesa {
+public class SorteiaJogadoresPorMesa {
     private final Context context;
     private final RoomJogadorDaEtapaDAO jogadorDaEtapaDAO;
     private Object NullPointerException;
@@ -25,7 +24,7 @@ public class CarregaListaDeJogadoresPorMesa {
     private  int[][] mesaComPosicao;
 
 
-    public CarregaListaDeJogadoresPorMesa(Context context) {
+    public SorteiaJogadoresPorMesa(Context context) {
         this.context = context;
         this.jogadorDaEtapaDAO = PokerDatabase
                 .getInstance(context)

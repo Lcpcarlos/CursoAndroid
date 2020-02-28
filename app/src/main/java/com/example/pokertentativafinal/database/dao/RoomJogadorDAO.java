@@ -27,6 +27,9 @@ public interface RoomJogadorDAO {
     @Query("SELECT * FROM jogador where idResponsavelFinanceiroa = :idResponsavelFinanceiro")
     Jogador jogadorPorIdFinanceiro(int idResponsavelFinanceiro);
 
+    @Query("SELECT * FROM jogador where id = :id")
+    Jogador jogadorPorId(int id);
+
     @Query("DELETE  FROM jogador")
     void limpaBaseJogador();
 

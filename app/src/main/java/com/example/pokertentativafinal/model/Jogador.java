@@ -16,6 +16,7 @@ public class Jogador implements Serializable {
     private String nome;
     private String telefone;
     private int idResponsavelFinanceiroa = id;
+    private boolean jogadorMarcadoParaEtapa = false;
 
     @Ignore
     public Jogador(String nome, String telefone) {
@@ -25,6 +26,14 @@ public class Jogador implements Serializable {
 
     public Jogador() {
 
+    }
+
+    public boolean isJogadorMarcadoParaEtapa() {
+        return jogadorMarcadoParaEtapa;
+    }
+
+    public void setJogadorMarcadoParaEtapa(boolean jogadorMarcadoParaEtapa) {
+        this.jogadorMarcadoParaEtapa = jogadorMarcadoParaEtapa;
     }
 
     public int getIdResponsavelFinanceiroa() {
