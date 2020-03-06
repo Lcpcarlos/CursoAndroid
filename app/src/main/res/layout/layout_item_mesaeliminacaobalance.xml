@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+        android:id="@+id/item_mesaPosicao_mesadaetapa_balance"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="24sp"
+        tools:text="1-2" />
+
+
+    <TextView
+        android:id="@+id/item_nome_mesadaetapa_balance"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="24sp"
+        tools:text="luiz" />
+
+
+    <CheckBox
+        android:id="@+id/item_checkBox_dealear_mesadaetapa_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sou o próximo DEALER?"
+        android:layout_marginLeft="8dp"/>
+
+</LinearLayout>

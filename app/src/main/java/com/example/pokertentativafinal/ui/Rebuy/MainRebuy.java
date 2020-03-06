@@ -18,7 +18,7 @@ public class MainRebuy extends AppCompatActivity {
 
     public static final String TITLE_APPBAR = "Jogadores sorteados";
 
-    private ListaRebuyDaEtapaSorteadoView listaMesaDaEtapaSorteadoView;
+    private ListaMesaDaEtapaSorteadoView listaMesaDaEtapaSorteadoView;
     private CarregaListaRebuy CarregaListaRebuy;
     private RoomJogadorDaEtapaDAO daoJogadordaEtapa;
 
@@ -32,7 +32,7 @@ public class MainRebuy extends AppCompatActivity {
                 .getRoomJogadorDaEtapaDAO();
 
         listaMesaDaEtapaSorteadoView =
-                new ListaRebuyDaEtapaSorteadoView(this);
+                new ListaMesaDaEtapaSorteadoView(this);
         CarregaListaRebuy carregaListaRebuy =
                 new CarregaListaRebuy(this);
         carregaListaRebuy.carregaLista();
@@ -62,7 +62,7 @@ public class MainRebuy extends AppCompatActivity {
 
 
     private void configuraListaJogadores() {
-        ListView listaJogador = findViewById(R.id.activity_mesa_da_etapa_sorteados);
+        ListView listaJogador = findViewById(R.id.activity_jogador_da_etapa_lista_rebuy);
         listaMesaDaEtapaSorteadoView.configuraAdapter(listaJogador);
 
     }

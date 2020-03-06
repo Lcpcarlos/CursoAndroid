@@ -5,11 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/acitivity_mesa_da_etapa_sorteados"
-    tools:context=".ui.JogadoresDaEtapaSorteados.MainJogadoresDaEtapaSorteados">
+    android:id="@+id/acitivity_main_mesa">
 
     <ListView
-        android:id="@+id/activity_mesa_da_etapa_sorteados"
+        android:id="@+id/activity_list_main_mesa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

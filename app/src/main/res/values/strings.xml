@@ -15,4 +15,7 @@
     <string name="novoJogador">Inclui novo jogador na etapa</string>
     <string name="rebuy">Rebuy</string>
     <string name="etapa">Etapa</string>
+    <string name="balancemesar">Balance Mesa</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="salvar_dealer">Salvar Dealer</string>
 </resources>

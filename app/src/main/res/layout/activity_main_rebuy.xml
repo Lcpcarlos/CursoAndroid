@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/acitivity_rebuy_da_etapa_sorteados"
     android:layout_width="match_parent"
+    android:id="@+id/activity_jogador_da_etapa_rebuy"
     android:layout_height="match_parent">
 
     <TextView
@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Posição"
-        app:layout_constraintBottom_toTopOf="@id/activity_mesa_da_etapa_sorteados"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textStyle="bold"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="Nome"
         android:layout_marginLeft="16dp"
-        app:layout_constraintBottom_toTopOf="@id/activity_mesa_da_etapa_sorteados"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/activity_titulo"
         app:layout_constraintTop_toTopOf="parent"
         android:textStyle="bold"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="120dp"
         android:text="Raike"
-        app:layout_constraintBottom_toTopOf="@id/activity_mesa_da_etapa_sorteados"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/activity_titulo_nome"
         app:layout_constraintTop_toTopOf="parent"
         android:textStyle="bold"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:text="Add-on"
-        app:layout_constraintBottom_toTopOf="@id/activity_mesa_da_etapa_sorteados"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/activity_titulo_raike"
         app:layout_constraintTop_toTopOf="parent"
         android:textStyle="bold"
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:text="Rebuy"
-        app:layout_constraintBottom_toTopOf="@id/activity_mesa_da_etapa_sorteados"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/activity_titulo_add_on"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,12 +67,9 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ListView
-        android:id="@+id/activity_mesa_da_etapa_sorteados"
+        android:id="@+id/activity_jogador_da_etapa_lista_rebuy"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activity_titulo"
         tools:listitem="@layout/layout_item_mesadaetapa_sorteados">
 

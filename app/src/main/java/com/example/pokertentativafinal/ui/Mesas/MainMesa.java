@@ -19,7 +19,7 @@ public class MainMesa extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jogadores_da_etapa_sorteados);
+        setContentView(R.layout.activity_main_mesa);
         setTitle(TITLE_APPBAR);
 
         daoJogadordaEtapa = PokerDatabase.getInstance(this)
@@ -39,7 +39,7 @@ public class MainMesa extends AppCompatActivity {
 
 
     private void configuraListaJogadores() {
-        ListView listaJogador = findViewById(R.id.activity_jogadores_da_etapa_sorteados);
+        ListView listaJogador = findViewById(R.id.activity_list_main_mesa);
         listaJogadorDaEtapaMesaPorMesaView.configuraAdapter(listaJogador);
 
     }

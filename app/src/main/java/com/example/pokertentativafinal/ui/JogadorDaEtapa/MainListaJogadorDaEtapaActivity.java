@@ -23,6 +23,7 @@ import com.example.pokertentativafinal.model.Jogador;
 import com.example.pokertentativafinal.model.JogadorDaEtapa;
 import com.example.pokertentativafinal.ui.Jogador.ActivityFormularioJogador;
 import com.example.pokertentativafinal.ui.JogadorDaEtapa.Adapter.ListaJogadoresDaEtapaAdapter;
+import com.example.pokertentativafinal.ui.MesaParaEliminacao.MainMesaEliminacao;
 import com.example.pokertentativafinal.ui.Mesas.MainMesa;
 import com.example.pokertentativafinal.ui.Rebuy.MainRebuy;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -139,6 +140,10 @@ public class MainListaJogadorDaEtapaActivity extends AppCompatActivity {
             }
 
 
+        }
+
+        if (itemIdMenu == R.id.activity_jogador_da_etapa_menu_balance_mesa) {
+            startActivity(new Intent(this, MainMesaEliminacao.class));
         }
 
         return super.onOptionsItemSelected(item);

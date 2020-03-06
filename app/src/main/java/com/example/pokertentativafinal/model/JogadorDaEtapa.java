@@ -6,8 +6,10 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity
-public class JogadorDaEtapa  {
+public class JogadorDaEtapa implements Serializable {
 
     @PrimaryKey
     private int id = 0;
@@ -23,6 +25,15 @@ public class JogadorDaEtapa  {
     private boolean pagou = false;
     private double ttlPagarFamilia = 0;
     private int posicaoDeEliminacao = 0;
+    private boolean novoDealear = false;
+
+    public boolean isNovoDealear() {
+        return novoDealear;
+    }
+
+    public void setNovoDealear(boolean novoDealear) {
+        this.novoDealear = novoDealear;
+    }
 
     public int getPosicaoDeEliminacao() {
         return posicaoDeEliminacao;

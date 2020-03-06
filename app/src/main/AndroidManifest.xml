@@ -20,9 +20,12 @@
         </activity>
         <activity android:name=".ui.Resumo.MainResumoActivity" />
         <activity android:name=".ui.Resultado.MainResultadoDaEtapaActivity" />
-        <activity android:name=".ui.JogadoresDaEtapaSorteados.MainJogadoresDaEtapaSorteados" />
+
         <activity android:name=".ui.Rebuy.MainRebuy" />
+        <activity android:name=".ui.MesaParaEliminacao.MainMesaEliminacao" />
         <activity android:name=".ui.Mesas.MainMesa" />
+        <activity android:name=".ui.MesaParaEliminacaoBalance.MainBalanceActivity" />
+        <activity android:name=".ui.MesaParaEliminacaoBalance.MainBalanceAvisoActivity" />
         <activity android:name=".ui.Jogador.ActivityFormularioJogador">
 
             <!-- <intent-filter> -->

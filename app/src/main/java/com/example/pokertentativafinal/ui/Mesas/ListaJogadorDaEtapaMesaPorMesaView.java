@@ -33,14 +33,14 @@ public class ListaJogadorDaEtapaMesaPorMesaView {
     public void atualizaLista() {
 
         List<JogadorDaEtapaPorMesa> mesas = new ArrayList<>();
-        List<JogadorDaEtapa> jogadores = daoJogadorDaEtapa.todosOrdemMesa();
-        jogadores = daoJogadorDaEtapa.todosOrdemMesa();
+        List<JogadorDaEtapa> jogadores = daoJogadorDaEtapa.todosOrdemMesaNaoEliminados();
+//        jogadores = daoJogadorDaEtapa.todosOrdemMesaNaoEliminados();
         List<String> nomes = new ArrayList<>();
 
         int mesaAtual = jogadores.get(0).getMesa();
         boolean mesaMudou = false;
 
-        for (int i = 0; i < daoJogadorDaEtapa.todosOrdemMesa().size(); i++) {
+        for (int i = 0; i < daoJogadorDaEtapa.todosOrdemMesaNaoEliminados().size(); i++) {
             if(mesaAtual != jogadores.get(i).getMesa()){
                 mesaMudou = true;
             } else {
@@ -55,7 +55,7 @@ public class ListaJogadorDaEtapaMesaPorMesaView {
             nomes.add(jogadores.get(i).getNome());
         }
 
-        int mesa = jogadores.get(daoJogadorDaEtapa.todosOrdemMesa().size() - 1).getMesa();
+        int mesa = jogadores.get(daoJogadorDaEtapa.todosOrdemMesaNaoEliminados().size() - 1).getMesa();
         mesas.add(new JogadorDaEtapaPorMesa(mesa, new ArrayList<String>(nomes)));
 
 
