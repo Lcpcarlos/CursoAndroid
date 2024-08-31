@@ -23,6 +23,7 @@ public class JogadorDaEtapaDAO {
         return new ArrayList<>(jogadoresDaEtapa);
     }
 
+
     public void edita(JogadorDaEtapa jogador) {
         JogadorDaEtapa jogadorEncontrado = buscaJogadorPeloID(jogador);
         if (jogadorEncontrado != null){
@@ -39,6 +40,16 @@ public class JogadorDaEtapaDAO {
             }
         }
         return null;
+    }
+
+    public int contaJogadoresMarcadosNaEtapa() {
+        int i = 0;
+        for (JogadorDaEtapa a : jogadoresDaEtapa) {
+            if (a.getisCheck()) {
+                i = i + 1;
+            }
+        }
+        return i;
     }
 
 }

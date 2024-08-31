@@ -137,6 +137,10 @@ public class JogadorDaEtapa implements Serializable {
         return nome;
     }
 
+    public boolean getisCheck() {
+        return check;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }

@@ -37,13 +37,13 @@ public class CarregaListaDeResultado {
             double valorAPagarDeRebuy = 0 ;
             double valorTotalAPagar = 0;
             double valorRaike = 0;
-            double valorBuyIn = 5;
+            double valorBuyIn = 10;
             double valorAddOn = 0;
             if (todosJogadores.get(i).isRaike()){
-                valorRaike= 5;
+                valorRaike= 10;
             }
             if (todosJogadores.get(i).isAddOn()){
-                valorAddOn= 5;
+                valorAddOn= 10;
             }
 
             int qtRebuY = todosJogadores.get(i).getQtReBuy();
@@ -51,9 +51,9 @@ public class CarregaListaDeResultado {
             int qtRebuyCinco = 2;
             if (qtRebuY > qtRebuyCinco) {
                 qtRebuyDez = qtRebuY - 2;
-                valorAPagarDeRebuy = ( qtRebuyCinco * 5) + ( qtRebuyDez * 10 );
+                valorAPagarDeRebuy = ( qtRebuyCinco * 10) + ( qtRebuyDez * 10 );
             } else {
-                valorAPagarDeRebuy = qtRebuY * 5;
+                valorAPagarDeRebuy = qtRebuY * 10;
             }
             valorTotalAPagar = valorBuyIn +
                     (valorRaike) +

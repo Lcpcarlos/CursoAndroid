@@ -19,23 +19,36 @@ public class MainResumoActivity extends AppCompatActivity {
 
     public static final String TITTLE_APPBAR = "Resumo da Etapa";
     public static final double dezPorCento = 0.1;
-    public static final int VALORBUYIN = 5;
+    public static final int VALORBUYIN = 10;
     public static final double SETENTAPORCENTO = 0.70;
     public static final double CINQUENTAESETEPORCENTO = 0.57;
+    public static final double CINQUENTAPORCENTO = 0.50;
     public static final double CINQUENTAEDOISPORCENTO = 0.52;
     public static final double QUARENTAEOITOPORCENTO = 0.48;
     public static final double QUARENTAECINCOPORCENTO = 0.45;
+    public static final double QUARENTAPORCENTO = 0.40;
     public static final double QUARENTAEDOISPORCENTO = 0.42;
+    public static final double TRINTAENOVEPORCENTO = 0.39;
+    public static final double TRINTAEOITOPORCENTO = 0.38;
+    public static final double TRINTAPORCENTO = 0.30;
     public static final double VINTENOVEPORCENTO = 0.29;
     public static final double VINTESEISPORCENTO = 0.26;
+    public static final double VINTECINCOPORCENTO = 0.25;
     public static final double VINTEQUATROPORCENTO = 0.24;
     public static final double VINTEEDOISPORCENTO = 0.22;
+    public static final double VINTEEUMPORCENTO = 0.21;
     public static final double VINTEPORCENTO = 0.20;
+    public static final double DEZESSETEPORCENTO = 0.17;
+    public static final double QUINZEPORCENTO = 0.15;
     public static final double QUARTOZEPORCENTO = 0.14;
     public static final double TREZEPORCENTO = 0.13;
+    public static final double DOZEPORCENTO = 0.13;
+    public static final double ONZEPORCENTO = 0.11;
+    public static final double DEZPORCENTO = 0.10;
     public static final double NOVEPORCENTO = 0.09;
     public static final double OITOPORCENTO = 0.08;
     public static final double SETEPORCENTO = 0.07;
+    public static final double SEISPORCENTO = 0.06;
     public static final double CINCOPORCENTO = 0.05;
 
     private CarregaListaDeResultado carregaListaDeResultado;
@@ -82,13 +95,18 @@ public class MainResumoActivity extends AppCompatActivity {
 
         daoJogadordaEtapa = PokerDatabase.getInstance(this)
                 .getRoomJogadorDaEtapaDAO();
+        carregaResumo();
+
     }
 
-    @Override
+    /* @Override
     protected void onResume() {
         super.onResume();
-        carregaResumo();
-    }
+
+     */
+    /* }
+
+     */
 
 
     private void carregaResumo() {
@@ -127,33 +145,33 @@ public class MainResumoActivity extends AppCompatActivity {
         }
 
         if (qtdeJogadorPodio == 3) {
-            valorPrimeiroColocado = round((totalPremio * CINQUENTAESETEPORCENTO) / VALORBUYIN);
+            valorPrimeiroColocado = round((totalPremio * CINQUENTAPORCENTO) / VALORBUYIN);
             valorPrimeiroColocado = valorPrimeiroColocado * VALORBUYIN;
-            valorSegundoColocado = round((totalPremio * VINTENOVEPORCENTO) / VALORBUYIN);
+            valorSegundoColocado = round((totalPremio * TRINTAPORCENTO) / VALORBUYIN);
             valorSegundoColocado = valorSegundoColocado * VALORBUYIN;
             valorTerceiroColocado = totalPremio - valorPrimeiroColocado - valorSegundoColocado;
         }
 
 
         if (qtdeJogadorPodio == 4) {
-            valorPrimeiroColocado = round((totalPremio * CINQUENTAEDOISPORCENTO) / VALORBUYIN);
+            valorPrimeiroColocado = round((totalPremio * QUARENTAECINCOPORCENTO) / VALORBUYIN);
             valorPrimeiroColocado = valorPrimeiroColocado * VALORBUYIN;
-            valorSegundoColocado = round((totalPremio * VINTESEISPORCENTO) / VALORBUYIN);
+            valorSegundoColocado = round((totalPremio * VINTECINCOPORCENTO) / VALORBUYIN);
             valorSegundoColocado = valorSegundoColocado * VALORBUYIN;
-            valorTerceiroColocado = round((totalPremio * QUARTOZEPORCENTO) / VALORBUYIN);
+            valorTerceiroColocado = round((totalPremio * VINTEPORCENTO) / VALORBUYIN);
             valorTerceiroColocado = valorTerceiroColocado * VALORBUYIN;
             valorQuartoColocado = totalPremio - valorPrimeiroColocado - valorSegundoColocado
                     - valorTerceiroColocado;
         }
 
         if (qtdeJogadorPodio == 5) {
-            valorPrimeiroColocado = round((totalPremio * QUARENTAEOITOPORCENTO) / VALORBUYIN);
+            valorPrimeiroColocado = round((totalPremio * QUARENTAPORCENTO) / VALORBUYIN);
             valorPrimeiroColocado = valorPrimeiroColocado * VALORBUYIN;
-            valorSegundoColocado = round((totalPremio * VINTEQUATROPORCENTO) / VALORBUYIN);
+            valorSegundoColocado = round((totalPremio * VINTEEDOISPORCENTO) / VALORBUYIN);
             valorSegundoColocado = valorSegundoColocado * VALORBUYIN;
-            valorTerceiroColocado = round((totalPremio * QUARTOZEPORCENTO) / VALORBUYIN);
+            valorTerceiroColocado = round((totalPremio * DEZESSETEPORCENTO) / VALORBUYIN);
             valorTerceiroColocado = valorTerceiroColocado * VALORBUYIN;
-            valorQuartoColocado = round((totalPremio * OITOPORCENTO) / VALORBUYIN);
+            valorQuartoColocado = round((totalPremio * DOZEPORCENTO) / VALORBUYIN);
             valorQuartoColocado = valorQuartoColocado * VALORBUYIN;
 
             valorQuintoColocado = totalPremio - valorPrimeiroColocado - valorSegundoColocado
@@ -161,15 +179,15 @@ public class MainResumoActivity extends AppCompatActivity {
         }
 
         if (qtdeJogadorPodio == 6) {
-            valorPrimeiroColocado = round((totalPremio * QUARENTAECINCOPORCENTO) / VALORBUYIN);
+            valorPrimeiroColocado = round((totalPremio * TRINTAENOVEPORCENTO) / VALORBUYIN);
             valorPrimeiroColocado = valorPrimeiroColocado * VALORBUYIN;
-            valorSegundoColocado = round((totalPremio * VINTEEDOISPORCENTO) / VALORBUYIN);
+            valorSegundoColocado = round((totalPremio * VINTEEUMPORCENTO) / VALORBUYIN);
             valorSegundoColocado = valorSegundoColocado * VALORBUYIN;
-            valorTerceiroColocado = round((totalPremio * TREZEPORCENTO) / VALORBUYIN);
+            valorTerceiroColocado = round((totalPremio * QUINZEPORCENTO) / VALORBUYIN);
             valorTerceiroColocado = valorTerceiroColocado * VALORBUYIN;
-            valorQuartoColocado = round((totalPremio * NOVEPORCENTO) / VALORBUYIN);
+            valorQuartoColocado = round((totalPremio * ONZEPORCENTO) / VALORBUYIN);
             valorQuartoColocado = valorQuartoColocado * VALORBUYIN;
-            valorQuintoColocado = round((totalPremio * SETEPORCENTO) / VALORBUYIN);
+            valorQuintoColocado = round((totalPremio * OITOPORCENTO) / VALORBUYIN);
             valorQuintoColocado = valorQuintoColocado * VALORBUYIN;
 
             valorSextoColocado = totalPremio - valorPrimeiroColocado - valorSegundoColocado
@@ -177,17 +195,17 @@ public class MainResumoActivity extends AppCompatActivity {
         }
 
         if (qtdeJogadorPodio == 7) {
-            valorPrimeiroColocado = round((totalPremio * QUARENTAEDOISPORCENTO) / VALORBUYIN);
+            valorPrimeiroColocado = round((totalPremio * TRINTAEOITOPORCENTO) / VALORBUYIN);
             valorPrimeiroColocado = valorPrimeiroColocado * VALORBUYIN;
             valorSegundoColocado = round((totalPremio * VINTEPORCENTO) / VALORBUYIN);
             valorSegundoColocado = valorSegundoColocado * VALORBUYIN;
-            valorTerceiroColocado = round((totalPremio * TREZEPORCENTO) / VALORBUYIN);
+            valorTerceiroColocado = round((totalPremio * QUARTOZEPORCENTO) / VALORBUYIN);
             valorTerceiroColocado = valorTerceiroColocado * VALORBUYIN;
-            valorQuartoColocado = round((totalPremio * NOVEPORCENTO) / VALORBUYIN);
+            valorQuartoColocado = round((totalPremio * DEZPORCENTO) / VALORBUYIN);
             valorQuartoColocado = valorQuartoColocado * VALORBUYIN;
             valorQuintoColocado = round((totalPremio * SETEPORCENTO) / VALORBUYIN);
             valorQuintoColocado = valorQuintoColocado * VALORBUYIN;
-            valorSextoColocado = round((totalPremio * CINCOPORCENTO) / VALORBUYIN);
+            valorSextoColocado = round((totalPremio * SEISPORCENTO) / VALORBUYIN);
             valorSextoColocado = valorSextoColocado * VALORBUYIN;
 
             valorSetimoColocado = totalPremio - valorPrimeiroColocado - valorSegundoColocado
@@ -224,11 +242,11 @@ public class MainResumoActivity extends AppCompatActivity {
     }
 
     private int calculaValorDezPorcento() {
-        //          encontra valorDezPorcento multiplo de 5 para 10% do total
+        //          encontra valorDezPorcento multiplo de 10 para 10% do total
         int valorDezPorcento = 0;
         valorDezPorcento = (int) ((totalGeral - totalRaike) * dezPorCento);
-        valorDezPorcento = valorDezPorcento / 5;
-        valorDezPorcento = valorDezPorcento * 5;
+        valorDezPorcento = valorDezPorcento / 10;
+        valorDezPorcento = valorDezPorcento * 10;
         return valorDezPorcento;
     }
 
@@ -237,7 +255,7 @@ public class MainResumoActivity extends AppCompatActivity {
             totalGeral = totalGeral + jogadores.get(i).getTtlPagar();
 
             if (jogadores.get(i).isRaike()) {
-                totalRaike = totalRaike + 5;
+                totalRaike = totalRaike + 10;
             }
 
             qtRebuy = qtRebuy + jogadores.get(i).getQtReBuy();

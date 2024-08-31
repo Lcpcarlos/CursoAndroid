@@ -3,7 +3,9 @@ package com.example.pokertentativafinal.ui.JogadorDaEtapa;
 import android.content.Context;
 
 import com.example.pokertentativafinal.database.PokerDatabase;
+import com.example.pokertentativafinal.database.dao.RoomJogadorDAO;
 import com.example.pokertentativafinal.database.dao.RoomJogadorDaEtapaDAO;
+import com.example.pokertentativafinal.model.Jogador;
 import com.example.pokertentativafinal.model.JogadorDaEtapa;
 
 import java.util.List;
@@ -35,6 +37,8 @@ public class SorteiaJogadoresPorMesa {
 
         List<JogadorDaEtapa> todosJogadores = jogadorDaEtapaDAO.todos();
 
+
+
         encontraTotalDeMesas(todosJogadores);
 
         int[] ttlJogadoresPorMesa = defineTotalDeJogadoresPorMesa();
@@ -58,11 +62,11 @@ public class SorteiaJogadoresPorMesa {
         Random posicao = new Random();
 
         for (int i = 0; i < todosJogadores.size(); i++) {
-            jogadorDaEtapa = todosJogadores.get(i);
 //          Define mesa
             continua = true;
             while (continua) {
                 mesaEscolhida = mesa.nextInt(ttlMesa);
+
                 if (jogadoresNaMesa[mesaEscolhida] < ttlJogadoresPorMesa[mesaEscolhida]) {
                     jogadoresNaMesa[mesaEscolhida] = jogadoresNaMesa[mesaEscolhida] + 1;
                     continua = false;
@@ -84,9 +88,12 @@ public class SorteiaJogadoresPorMesa {
             }
             mesaEscolhida = mesaEscolhida + 1;
             posicaoEscolhida = posicaoEscolhida + 1;
+
+            jogadorDaEtapa = todosJogadores.get(i);
             jogadorDaEtapa.setMesa(mesaEscolhida);
             jogadorDaEtapa.setPosicaoMesa(posicaoEscolhida);
             jogadorDaEtapaDAO.edita(jogadorDaEtapa);
+
         }
     }
 

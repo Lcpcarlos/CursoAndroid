@@ -29,6 +29,11 @@ public interface RoomJogadorDaEtapaDAO {
     @Query("SELECT * FROM JogadorDaEtapa")
     List<JogadorDaEtapa> todos();
 
+    @Query("SELECT COUNT(*) FROM JogadorDaEtapa")
+    int ttlJogadoresParaEtapa();
+
+    @Query("SELECT COUNT(*) FROM JogadorDaEtapa where mesa > 0")
+    int ttlJogadoresParaEtapaJaNasMesas();
 
     @Query("SELECT * FROM JogadorDaEtapa where id = :idJogador")
     JogadorDaEtapa jogadorEspecifico(int idJogador);
